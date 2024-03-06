@@ -1,0 +1,153 @@
+.global-header{
+    padding-top: 20px;
+    padding-left: 20px;
+
+    @media screen and (min-width: 768px) {
+        padding-top:32px ;
+        padding-left: 50px;
+    }
+        @media screen and (min-width: 1280px){
+            padding-top: 32px;
+                padding-left: 32px;
+                
+        }
+}
+
+
+
+.header-container {
+  max-width: 100%;
+  height: 460px;
+  border-radius: 10px 10px 10px 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 65.37%
+    ),
+    url('../images/orange-smart_1p.jpg'), url('../images/red-smart_1p.jpg'),
+    url('../images/yellow-smart_1p.jpg');
+  animation: change 35s infinite ease-in-out;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @keyframes change {
+    0% {
+      background-image: url('../images/orange-smart_1p.jpg');
+    }
+
+    33.33% {
+      background-image: url('../images/red-smart_1p.jpg');
+    }
+
+    66.66% {
+      background-image: url('../images/yellow-smart_1p.jpg');
+    }
+
+    100% {
+      background-image: url('../images/orange-smart_1p.jpg');
+    }
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .box {
+      background-image: url('../images/orange-smart_2p.jpg'),
+        url('../images/red-smart_2p.jpg'), url('../images/yellow-smart_2p.jpg');
+    }
+  }
+
+  @media (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+    .box {
+      background-image: url('../images/orange-smart_4p.jpg'),
+        url('../images/red-smart_4p.jpg'), url('../images/yellow-smart_4p.jpg');
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+   max-width: 100%;
+    height: 222px;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background: linear-gradient(
+        273.67deg,
+        rgba(0, 0, 0, 0.49) -2.09%,
+        rgba(0, 0, 0, 0) 99.83%
+      ),
+      url('../images/red-tablet_1x.jpg');
+    background-size: cover;
+
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      .box {
+        background-image: url('../images/red-tablet_@2x.jpg');
+      }
+    }
+
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+      .box {
+        background-image: url('../images/red-tablet_@4x.jpg ');
+      }
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 100%;
+      height: 316px;
+      background-size: cover;
+      background: linear-gradient(
+          273.67deg,
+          rgba(0, 0, 0, 0.49) -2.09%,
+          rgba(0, 0, 0, 0) 99.83%
+        ),
+        url('../images/red-desktop_1x.jpg'),
+        url('../images/yellow-desktop_1x.jpg');
+      animation: change 35s infinite ease-in-out;
+      background-repeat: no-repeat;
+      border-radius: 15px 15px 15px 15px;
+
+      @keyframes change {
+        0% {
+          background-image: url('../images/red-desktop_1x.jpg');
+        }
+
+        50% {
+          background-image: url('../images/yellow-desktop_1x.jpg');
+        }
+
+        100% {
+          background-image: url('../images/red-desktop_1x.jpg');
+        }
+      }
+
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        .box {
+          background-image: url('../images/red-desktop_2p.jpg'),
+            url('../images/yellow-desktop_2x.jpg');
+        }
+      }
+
+      @media (min-device-pixel-ratio: 3),
+        (-webkit-min-device-pixel-ratio: 3),
+        (min-resolution: 288dpi),
+        (min-resolution: 3dppx) {
+        .box {
+          background-image: url('../images/red-desktop_4p.jpg'),
+            url('../images/yellow-desktop_4x.jpg');
+        }
+      }
+    }
+  }
+}
+
