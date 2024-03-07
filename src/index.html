@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteca the best</title>
 
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+        <script type="module" src="./index.js"></script>
   </head>
+
+
 
   <body>
     <header class="global-header">
       <section class="header-container">
-        <h1 class="logo">Filmoteka</h1>
+        
         <div class="header-nav">
           <nav class="header-main-nav">
             <ul class="header-list-button">
               <li class="header-list-item">
                  <a href="./index.html"
-                    class="link-header home-page" >HOME</a>
+                    class="link header-link home-page" >HOME</a>
               </li>
               <li class="header-list-item">
-                <a href ="./library.html" >MY LIBRARY</a>
+                <a href ="./library.html"  class="link header-link library-page">MY LIBRARY</a>
               </li>
             </ul>
 
@@ -33,14 +37,18 @@
                 autocomplete="off"
                 placeholder="Movie Search" 
                 class="header-input"/>
-
-              <!-- de adaugat svg -->
+                 <!-- <button class="header__search-buttn">
+            <svg class="header__icon search">
+              <use href="./images"></use> svg search -->
+            <!-- </svg>
+          </button> -->
               </form>
               <p class="search-message">Search result not successful. Enter the correct movie name.</p>
             </div>
 
           </nav>
           
+
         </div>
       </section>
     </header>
