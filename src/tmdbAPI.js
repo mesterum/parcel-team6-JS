@@ -1,34 +1,52 @@
-//Node
+export const API_KEY = '9899002b9b51fd4dfe6aea31ec85120f';
 
-const fetch = require('node-fetch');
+// popular movies
+const trendMovie = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODk5MDAyYjliNTFmZDRkZmU2YWVhMzFlYzg1MTIwZiIsInN1YiI6IjY1ZWEwYWJjMzg5ZGExMDE4MGQ4MmIxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.angMo5jW-tFQIJO4UtJWUK_cTOEioz4-1xtjJUpSmpg',
+  },
+};
 
-const url = 'https://api.themoviedb.org/3/configuration';
+export const popularMovies = fetch(
+  'https://api.themoviedb.org/3/trending/all/day?language=en-US',
+  trendMovie
+)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+
+// search key word
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODk5MDAyYjliNTFmZDRkZmU2YWVhMzFlYzg1MTIwZiIsInN1YiI6IjY1ZWEwYWJjMzg5ZGExMDE4MGQ4MmIxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.angMo5jW-tFQIJO4UtJWUK_cTOEioz4-1xtjJUpSmpg'
-  }
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODk5MDAyYjliNTFmZDRkZmU2YWVhMzFlYzg1MTIwZiIsInN1YiI6IjY1ZWEwYWJjMzg5ZGExMDE4MGQ4MmIxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.angMo5jW-tFQIJO4UtJWUK_cTOEioz4-1xtjJUpSmpg',
+  },
 };
 
-export const getMovie = fetch(url, options)
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .catch(err => console.error('error:' + err));
+export const searchMovies = fetch(
+  'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1',
+  options
+)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 
-export const API_KEY = "9899002b9b51fd4dfe6aea31ec85120f"
+//info complet movies
+const movieInfo = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODk5MDAyYjliNTFmZDRkZmU2YWVhMzFlYzg1MTIwZiIsInN1YiI6IjY1ZWEwYWJjMzg5ZGExMDE4MGQ4MmIxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.angMo5jW-tFQIJO4UtJWUK_cTOEioz4-1xtjJUpSmpg',
+  },
+};
 
-/* js
-const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODk5MDAyYjliNTFmZDRkZmU2YWVhMzFlYzg1MTIwZiIsInN1YiI6IjY1ZWEwYWJjMzg5ZGExMDE4MGQ4MmIxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.angMo5jW-tFQIJO4UtJWUK_cTOEioz4-1xtjJUpSmpg'
-    }
-  };
-  
-  fetch('https://api.themoviedb.org/3/configuration', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));*/
-    
+export const infoMovies = fetch('https://api.themoviedb.org/3/movie/movie_id?language=en-US', movieInfo)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
