@@ -36,7 +36,11 @@
     color: rgba(255, 255, 255, 1);
     cursor: pointer;
 }
-
+.buttons-library button:hover {
+    background-color: rgba(185, 47, 44, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
 .buttons-library .watched-tab-btn {
     padding: 10px 23px;
 }
