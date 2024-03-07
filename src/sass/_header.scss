@@ -8,6 +8,9 @@ a {
 header {
     position: relative;
     margin-top: 20px;
+.global-header {
+  padding-top: 20px;
+  padding-left: 20px;
 
     @media screen and (min-width: 768px) {
         margin-top: 32px;
@@ -356,4 +359,4 @@ header {
 
 
 
-
+    }
