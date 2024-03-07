@@ -1,365 +1,363 @@
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 header {
-    position: relative;
-    margin-top: 20px;
+  position: relative;
+  margin-top: 20px;
 
-    .global-header {
-        padding-top: 20px;
-        padding-left: 20px;
+  .global-header {
+    padding-top: 20px;
+    padding-left: 20px;
 
-        @media screen and (min-width: 768px) {
-            margin-top: 32px;
-        }
+    @media screen and (min-width: 768px) {
+      margin-top: 32px;
+    }
+  }
+
+  .header-nav {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 460px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 14px;
+    border-radius: 10px 10px 10px 10px;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.4) 65.37%
+      ),
+      url('/static/images/orange-smart_1p.jpg'),
+      url('/static/images/red-smart_1p.jpg'),
+      url('/static/images/yellow-smart_1p.jpg');
+    animation: change 35s infinite ease-in-out;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @keyframes change {
+      0% {
+        background-image: url('/static/images/orange-smart_1p.jpg');
+      }
+
+      33.33% {
+        background-image: url('/static/images/red-smart_1p.jpg');
+      }
+
+      66.66% {
+        background-image: url('/static/images/yellow-smart_1p.jpg');
+      }
+
+      100% {
+        background-image: url('/static/images/orange-smart_1p.jpg');
+      }
     }
 
-    .header-nav {
-        max-width: 280px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 460px;
-        padding-left: 14px;
-        padding-right: 14px;
-        padding-top: 14px;
-        border-radius: 10px 10px 10px 10px;
-        background: linear-gradient(180deg,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.4) 65.37%),
-            url('../images/orange-smart_1p.jpg'), url('../images/red-smart_1p.jpg'),
-            url('../images/yellow-smart_1p.jpg');
-        animation: change 35s infinite ease-in-out;
-        background-repeat: no-repeat;
-        background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      .box {
+        background-image: url('/static/images/orange-smart_2p.jpg'),
+          url('/static/images/red-smart_2p.jpg'),
+          url('/static/images/yellow-smart_2p.jpg');
+      }
+    }
 
-        @keyframes change {
-            0% {
-                background-image: url('../images/orange-smart_1p.jpg');
-            }
+    @media (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3),
+      (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+      .box {
+        background-image: url('/static/images/orange-smart_4p.jpg'),
+          url('/static/images/red-smart_4p.jpg'),
+          url('/static/images/yellow-smart_4p.jpg');
+      }
+    }
 
-            33.33% {
-                background-image: url('../images/red-smart_1p.jpg');
-            }
+    @media screen and (min-width: 768px) {
+      max-width: 704px;
+      height: 222px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 16px;
+      border-radius: 15px;
+      background-repeat: no-repeat;
+      background: linear-gradient(
+          273.67deg,
+          rgba(0, 0, 0, 0.49) -2.09%,
+          rgba(0, 0, 0, 0) 99.83%
+        ),
+        url('/static/images/red-tablet_1x.jpg');
+      background-size: cover;
 
-            66.66% {
-                background-image: url('../images/yellow-smart_1p.jpg');
-            }
-
-            100% {
-                background-image: url('../images/orange-smart_1p.jpg');
-            }
-        }
-
-        @media (min-device-pixel-ratio: 2),
+      @media (min-device-pixel-ratio: 2),
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            .box {
-                background-image: url('../images/orange-smart_2p.jpg'),
-                    url('../images/red-smart_2p.jpg'), url('../images/yellow-smart_2p.jpg');
-            }
+        .box {
+          background-image: url('/static/images/red-tablet_@2x.jpg');
         }
+      }
 
-        @media (min-device-pixel-ratio: 3),
+      @media (min-device-pixel-ratio: 3),
         (-webkit-min-device-pixel-ratio: 3),
         (min-resolution: 288dpi),
         (min-resolution: 3dppx) {
-            .box {
-                background-image: url('../images/orange-smart_4p.jpg'),
-                    url('../images/red-smart_4p.jpg'), url('../images/yellow-smart_4p.jpg');
-            }
+        .box {
+          background-image: url('/static/images/red-tablet_@4x.jpg ');
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        max-width: 1216px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 316px;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 32px;
+        padding-top: 16px;
+        background-size: cover;
+        background: linear-gradient(
+            273.67deg,
+            rgba(0, 0, 0, 0.49) -2.09%,
+            rgba(0, 0, 0, 0) 99.83%
+          ),
+          url('/static/images/red-desktop_1x.jpg'),
+          url('/static/images/yellow-desktop_1x.jpg');
+        animation: change 35s infinite ease-in-out;
+        background-repeat: no-repeat;
+        border-radius: 15px 15px 15px 15px;
+
+        @keyframes change {
+          0% {
+            background-image: url('/static/images/red-desktop_1x.jpg');
+          }
+
+          50% {
+            background-image: url('/static/images/yellow-desktop_1x.jpg');
+          }
+
+          100% {
+            background-image: url('/static/images/red-desktop_1x.jpg');
+          }
         }
 
-        @media screen and (min-width: 768px) {
-            max-width: 704px;
-            height: 222px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 16px;
-            padding-right: 16px;
-            padding-top: 16px;
-            border-radius: 15px;
-            background-repeat: no-repeat;
-            background: linear-gradient(273.67deg,
-                    rgba(0, 0, 0, 0.49) -2.09%,
-                    rgba(0, 0, 0, 0) 99.83%),
-                url('../images/red-tablet_1x.jpg');
-            background-size: cover;
-
-            @media (min-device-pixel-ratio: 2),
-            (-webkit-min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-                .box {
-                    background-image: url('../images/red-tablet_@2x.jpg');
-                }
-            }
-
-            @media (min-device-pixel-ratio: 3),
-            (-webkit-min-device-pixel-ratio: 3),
-            (min-resolution: 288dpi),
-            (min-resolution: 3dppx) {
-                .box {
-                    background-image: url('../images/red-tablet_@4x.jpg ');
-                }
-            }
-
-            @media screen and (min-width: 1280px) {
-                max-width: 1216px;
-                margin-left: auto;
-                margin-right: auto;
-                height: 316px;
-                padding-left: 32px;
-                padding-right: 32px;
-                padding-bottom: 32px;
-                padding-top: 16px;
-                background-size: cover;
-                background: linear-gradient(273.67deg,
-                        rgba(0, 0, 0, 0.49) -2.09%,
-                        rgba(0, 0, 0, 0) 99.83%),
-                    url('../images/red-desktop_1x.jpg'),
-                    url('../images/yellow-desktop_1x.jpg');
-                animation: change 35s infinite ease-in-out;
-                background-repeat: no-repeat;
-                border-radius: 15px 15px 15px 15px;
-
-                @keyframes change {
-                    0% {
-                        background-image: url('../images/red-desktop_1x.jpg');
-                    }
-
-                    50% {
-                        background-image: url('../images/yellow-desktop_1x.jpg');
-                    }
-
-                    100% {
-                        background-image: url('../images/red-desktop_1x.jpg');
-                    }
-                }
-
-                @media (min-device-pixel-ratio: 2),
-                (-webkit-min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi),
-                (min-resolution: 2dppx) {
-                    .box {
-                        background-image: url('../images/red-desktop_2p.jpg'),
-                            url('../images/yellow-desktop_2x.jpg');
-                    }
-                }
-
-                @media (min-device-pixel-ratio: 3),
-                (-webkit-min-device-pixel-ratio: 3),
-                (min-resolution: 288dpi),
-                (min-resolution: 3dppx) {
-                    .box {
-                        background-image: url('../images/red-desktop_4p.jpg'),
-                            url('../images/yellow-desktop_4x.jpg');
-                    }
-                }
-            }
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          .box {
+            background-image: url('/static/images/red-desktop_2p.jpg'),
+              url('/static/images/yellow-desktop_2x.jpg');
+          }
         }
+
+        @media (min-device-pixel-ratio: 3),
+          (-webkit-min-device-pixel-ratio: 3),
+          (min-resolution: 288dpi),
+          (min-resolution: 3dppx) {
+          .box {
+            background-image: url('/static/images/red-desktop_4p.jpg'),
+              url('/static/images/yellow-desktop_4x.jpg');
+          }
+        }
+      }
+    }
+  }
+
+  .header-main-nav {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      margin-bottom: 105px;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      align-items: baseline;
     }
 
+    @media screen and (min-width: 1280px) {
+      display: flex;
+      margin-bottom: 151px;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
 
-    .header-main-nav {
+  .header-list-button {
+    display: flex;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
 
-        display: flex;
-        flex-direction: column;
+  .header-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 10px 26px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    color: #000000;
+    transition: transform 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 
-
-
-        @media screen and (min-width: 768px) {
-            display: flex;
-            margin-bottom: 105px;
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-            align-items: baseline;
-        }
-
-        @media screen and (min-width: 1280px) {
-            display: flex;
-            margin-bottom: 151px;
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-        }
+    &.active {
+      background-color: #000000;
+      color: #ffffff;
+      cursor: initial;
     }
 
-    .header-list-button {
-        display: flex;
-        margin-bottom: 16px;
-        gap: 8px;
+    &.home-page {
+      background-color: #000000;
+      color: #ffffff;
     }
 
-    .header-link {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 14px;
-        padding: 10px 26px;
-        border-radius: 100px;
-        background-color: #ffffff;
-        color: #000000;
-        transition: transform 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
-
-        &.active {
-            background-color: #000000;
-            color: #ffffff;
-            cursor: initial;
-        }
-
-        &.home-page {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        &.library-page {
-            padding: 10px 22px;
-        }
-
-        &:hover,
-        &:focus {
-            background-color: #000000;
-            color: #ffffff;
-            transform: scale(1.04);
-            box-shadow: 0 0 5px #ffffff;
-        }
-
-        @media screen and (min-width: 768px) {
-            padding: 12px 24px;
-
-            &.libr {
-                padding: 12px 18px;
-            }
-        }
-
-        @media screen and (min-width: 1280px) {
-            padding: 14px 32px;
-
-            &.libr {
-                padding: 14px 22px;
-            }
-        }
+    &.library-page {
+      padding: 10px 22px;
     }
 
-    .header-search {
-        width: 252px;
-        height: 34px;
-
-        padding-left: 14px;
-        padding-right: 14px;
-        display: flex;
-        border-radius: 100px;
-        background-color: #ffffff;
-
-        @media screen and (min-width: 768px) {
-            width: 195px;
-            height: 38px;
-            margin-right: 4px;
-            margin-bottom: 8px;
-            padding-left: 16px;
-            padding-right: 16px;
-        }
-
-        @media screen and (min-width: 1280px) {
-            width: 287px;
-            height: 42px;
-            margin-right: 8px;
-        }
+    &:hover,
+    &:focus {
+      background-color: #000000;
+      color: #ffffff;
+      transform: scale(1.04);
+      box-shadow: 0 0 5px #ffffff;
     }
 
-    .header-input {
-        width: 210px;
-        font-size: 12px;
-        line-height: 1.16;
-        text-transform: capitalize;
-        outline: 0;
-        border: 0;
-        border-radius: 100px;
-        background-color: transparent;
+    @media screen and (min-width: 768px) {
+      padding: 12px 24px;
 
-        @media screen and (min-width: 768px) {
-            width: 120px;
-            font-size: 14px;
-            line-height: 16px;
-        }
-
-        @media screen and (min-width: 1280px) {
-            width: 140px;
-        }
+      &.libr {
+        padding: 12px 18px;
+      }
     }
 
-    .header-input::placeholder {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 1.16;
-        color: #000000;
+    @media screen and (min-width: 1280px) {
+      padding: 14px 32px;
 
-        @media screen and (min-width: 768px) {
-            font-size: 14px;
-            line-height: 16px;
-        }
+      &.libr {
+        padding: 14px 22px;
+      }
+    }
+  }
 
-        @media screen and (min-width: 1280px) {
-            font-size: 14px;
-            line-height: 16px;
-        }
+  .header-search {
+    width: 252px;
+    height: 34px;
+
+    padding-left: 14px;
+    padding-right: 14px;
+    display: flex;
+    border-radius: 100px;
+    background-color: #ffffff;
+
+    @media screen and (min-width: 768px) {
+      width: 195px;
+      height: 38px;
+      margin-right: 4px;
+      margin-bottom: 8px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
-    .header-message {
-        display: none;
-        width: 155px;
-        margin-left: 16px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 10px;
-        line-height: 12px;
-        text-overflow: unset;
-        color: #ffffff;
+    @media screen and (min-width: 1280px) {
+      width: 287px;
+      height: 42px;
+      margin-right: 8px;
+    }
+  }
+
+  .header-input {
+    width: 210px;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: capitalize;
+    outline: 0;
+    border: 0;
+    border-radius: 100px;
+    background-color: transparent;
+
+    @media screen and (min-width: 768px) {
+      width: 120px;
+      font-size: 14px;
+      line-height: 16px;
     }
 
-    .header-logo {
+    @media screen and (min-width: 1280px) {
+      width: 140px;
+    }
+  }
 
-        position: relative;
+  .header-input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    color: #000000;
 
-
-        @media screen and (min-width: 768px) {
-
-
-            margin-right: 60px;
-        }
+    @media screen and (min-width: 768px) {
+      font-size: 14px;
+      line-height: 16px;
     }
 
-    .header-logo-link {
-        display: flex;
-        justify-content: center;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 38px;
-        color: #ffffff;
+    @media screen and (min-width: 1280px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
 
-        @media screen and (min-width: 768px) {
-            justify-content: start;
-            align-items: center;
-            font-size: 40px;
-            line-height: 47px;
-        }
+  .header-message {
+    display: none;
+    width: 155px;
+    margin-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    text-overflow: unset;
+    color: #ffffff;
+  }
 
-        @media screen and (min-width: 1280px) {
-            justify-content: start;
-            font-size: 64px;
-            line-height: 75px;
-        }
+  .header-logo {
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 60px;
+    }
+  }
+
+  .header-logo-link {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: #ffffff;
+
+    @media screen and (min-width: 768px) {
+      justify-content: start;
+      align-items: center;
+      font-size: 40px;
+      line-height: 47px;
     }
 
-
-
+    @media screen and (min-width: 1280px) {
+      justify-content: start;
+      font-size: 64px;
+      line-height: 75px;
+    }
+  }
 }
