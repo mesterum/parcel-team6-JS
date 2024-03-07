@@ -1,21 +1,15 @@
 {
-  "name": "parcel-project-template",
-  "version": "2.0.0",
+  "name": "filmoteka",
+  "version": "0.0.1",
   "description": "",
-  "homepage": "https://exigibil.github.io/parcel-team6",
+  "homepage": "https://mesterum.github.io/parcel-team6-JS",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-team6/"
+    "build": "parcel build src/*.html --public-url /parcel-team6-JS/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/exigibil/parcel-team6.git"
-  },
-  "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "git+https://github.com/mesterum/parcel-team6-JS.git"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
