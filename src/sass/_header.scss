@@ -20,7 +20,7 @@ header {
   }
 
   .header-nav {
-    max-width: 280px;
+    max-width: 290px;
     margin-left: auto;
     margin-right: auto;
     height: 460px;
@@ -82,7 +82,7 @@ header {
 
     @media screen and (min-width: 768px) {
       max-width: 704px;
-      height: 222px;
+      height: 232px;
       margin-left: auto;
       margin-right: auto;
       padding-left: 16px;
@@ -330,34 +330,65 @@ header {
   }
 
   .header-logo {
-    position: relative;
+      position: relative;
+      bottom: 50px;
 
-    @media screen and (min-width: 768px) {
-      margin-right: 60px;
-    }
+      @media screen and (min-width: 768px) {
+          margin-right: 60px;
+      }
+  }
+
+  .header-icon.film {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      margin-top: 35px;
+      z-index: 0;
+
+      @media screen and (min-width: 768px) {
+          width: 40px;
+          height: 40px;
+        margin-top: 0;
+        z-index: 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+          width: 59px;
+          height: 59px;
+          margin-right: 16px;
+          margin-top: 0px;
+          
+      }
+
+      
   }
 
   .header-logo-link {
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 38px;
-    color: #ffffff;
+      display: flex;
+      justify-content: center;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 38px;
+      color: #ffffff;
+      padding-top: 300px;
 
-    @media screen and (min-width: 768px) {
-      justify-content: start;
-      align-items: center;
-      font-size: 40px;
-      line-height: 47px;
-    }
+      @media screen and (min-width: 768px) {
+          justify-content: start;
+          align-items: center;
+          font-size: 40px;
+          line-height: 47px;
+         padding-top: 0px;
+         
+      }
 
-    @media screen and (min-width: 1280px) {
-      justify-content: start;
-      font-size: 64px;
-      line-height: 75px;
-    }
+      @media screen and (min-width: 1280px) {
+          justify-content: start;
+          font-size: 64px;
+          line-height: 75px;
+          
+      }
   }
 }
+
