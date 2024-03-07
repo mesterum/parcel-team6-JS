@@ -1,15 +1,170 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Filmoteca the best</title>
+
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
+
   <body>
-    <h1>Filmoteka</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header class="global-header">
+      <section class="header-container">
+        <h1 class="logo">Filmoteka</h1>
+        <div class="header-nav">
+          <nav class="header-main-nav">
+            <ul class="header-list-button">
+              <li class="header-list-item">
+                 <a href="./index.html"
+                    class="link-header home-page" >HOME</a>
+              </li>
+              <li class="header-list-item">
+                <a href ="./library.html" >MY LIBRARY</a>
+              </li>
+            </ul>
+
+            <div class="header-search-container">
+              <form class="header-search">
+                <input  
+                type="text" 
+                name="searchMovie"
+                autocomplete="off"
+                placeholder="Movie Search" 
+                class="header-input"/>
+
+              <!-- de adaugat svg -->
+              </form>
+              <p class="search-message">Search result not successful. Enter the correct movie name.</p>
+            </div>
+
+          </nav>
+          
+        </div>
+      </section>
+    </header>
+      </header>
+
+      <!--gallery-->
+
+      <section class="gallery">
+        <div class="container">
+          <h2 class="watch_trailer">Watch trailer</h2>
+          <div class="swiper">
+            <svg class="swiper-button-prev-icon">
+              <use href="#"></use>
+            </svg>
+          </div>
+          <div class="swiper-button-next">
+            <svg class="swiper-button-next-icon">
+              <use></use>
+            </svg>
+          </div>
+        </div>
+
+        <ul class="movies"></ul>
+      </section>
+
+      <!--pagination-->
+
+      <section class="container-pagination">
+        <ul class="pagination"></ul>
+      </section>
+
+      <!--loader-->
+
+      <section class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </section>
+
+      <!--footer-->
+
+      <footer class="footer">
+        <div class="container-footer">
+          <ul class="footer-list">
+            <li class="footer-item">
+              © 2023 | All Rights Reserved | Developed with
+            </li>
+            <li class="footer-item">by GoIT Students</li>
+            <li class="footer-item">
+              <svg class="footer-icon">aici vine inimioara</svg>
+            </li>
+          </ul>
+        </div>
+      </footer>
+
+      <!-- modal-->
+
+      <div id="modal_info" class="modal_info1">
+        <div id="modal">
+          <div id="close_modal" class="modal_close"></div>
+          <div id="movie_card">
+            <div id="content">
+              <div id="movie_content" class="img_card">
+                <div id="film-img" alt="Film Image">
+                  <button class="trailer-button" id="film-id" type="button">
+                    <svg class="trailer-icon">
+                      <use class="trailer-icon" href="#"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div id="text-content">
+                <h2 id="film-title"></h2>
+                <div id="description">
+                  <div class="description-content">
+                    Votes
+                    <div id="votes"></div>
+                  </div>
+                  <div class="description-content">
+                    Popularity
+                    <div id="popularity"></div>
+                  </div>
+                  <div class="description-content">
+                    Original title
+                    <div id="original_title"></div>
+                  </div>
+                  <div class="description-content">
+                    Genre
+                    <div id="genre"></div>
+                  </div>
+                </div>
+                <div class="about-section">
+                  <span>About</span>
+                  <div id="about"></div>
+                </div>
+
+                <div class="btn_class" id="buttonClass">
+                  <button
+                    type="button"
+                    class="add-to-watched-btn"
+                    id="btn"
+                    data-value="add"
+                  >
+                    ADD TO WATCHED
+                  </button>
+
+                  <button
+                    type="button"
+                    class="add-to-queue-btn"
+                    id="btn"
+                    data-value="add"
+                  >
+                    ADD TO QUEUE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
