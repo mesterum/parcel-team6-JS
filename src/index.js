@@ -2,12 +2,12 @@ import './js/api';
 import './js/gallery_markup';
 import './js/localStorage';
 import './js/refs';
-/*
+
 import {
   TMDBconfiguration,
   getMovies,
   movieDescription,
-} from './js/themoviedbAPI';
+} from './js/themoviedbAPI.ts';
 
 getMovies().then(sr => {
   let cards = sr.results
@@ -26,4 +26,3 @@ getMovies().then(sr => {
   console.log(sr.results);
   console.log(cards);
 });
-*/

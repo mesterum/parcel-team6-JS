@@ -1,4 +1,12 @@
-import { fetchGenres } from './api';
+//import { fetchGenres } from './api';
+import axios, { AxiosError } from 'axios';
+import { API_KEY } from './config';
+
+import {
+  TMDBconfiguration,
+  getMovies,
+  movieDescription,
+} from './js/themoviedbAPI';
 
 const NO_POSTER = `../static/images/nothin.jpg`;
 
