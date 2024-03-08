@@ -1,0 +1,56 @@
+ .buttons-library {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 4px;
+   bottom: 70px;
+   
+
+@media screen and (min-width: 768px) {
+       position: relative;
+       bottom: 280px;
+       padding-left: 350px;
+       
+    }
+
+    @media screen and (min-width: 1280px) {
+       position: relative;
+        bottom: 400px;
+        padding-left: 700px;
+
+
+    }
+}
+
+
+
+.buttons-library button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(185, 47, 44, 1);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.buttons-library button:focus{
+    background-color: rgba(185, 47, 44, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.buttons-library button:hover {
+    background-color: rgba(185, 47, 44, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.buttons-library .watched-tab-btn {
+    padding: 10px 23px;
+}
+
+.buttons-library .queue-tab-btn {
+    padding: 10px 24px;
+}
+
+.empty-library-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

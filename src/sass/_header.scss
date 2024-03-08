@@ -20,7 +20,7 @@ header {
   }
 
   .header-nav {
-    max-width: 280px;
+    max-width: 290px;
     margin-left: auto;
     margin-right: auto;
     height: 460px;
@@ -82,7 +82,7 @@ header {
 
     @media screen and (min-width: 768px) {
       max-width: 704px;
-      height: 222px;
+      height: 232px;
       margin-left: auto;
       margin-right: auto;
       padding-left: 16px;
@@ -112,7 +112,7 @@ header {
         (min-resolution: 288dpi),
         (min-resolution: 3dppx) {
         .box {
-          background-image: url('/static/images/red-tablet_@4x.jpg ');
+          background-image: url('/static/images/red-tablet_@4x.jpg');
         }
       }
 
@@ -331,9 +331,32 @@ header {
 
   .header-logo {
     position: relative;
+    bottom: 50px;
 
     @media screen and (min-width: 768px) {
       margin-right: 60px;
+    }
+  }
+
+  .header-icon.film {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    margin-top: 35px;
+    z-index: 0;
+
+    @media screen and (min-width: 768px) {
+      width: 40px;
+      height: 40px;
+      margin-top: 0;
+      z-index: 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 59px;
+      height: 59px;
+      margin-right: 16px;
+      margin-top: 0px;
     }
   }
 
@@ -346,12 +369,14 @@ header {
     font-size: 32px;
     line-height: 38px;
     color: #ffffff;
+    padding-top: 300px;
 
     @media screen and (min-width: 768px) {
       justify-content: start;
       align-items: center;
       font-size: 40px;
       line-height: 47px;
+      padding-top: 0px;
     }
 
     @media screen and (min-width: 1280px) {
