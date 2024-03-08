@@ -1,4 +1,5 @@
-import { TMDBconfiguration, getMovies, movieDescription } from "./js/themoviedbAPI";
+import { TMDBconfiguration, getMovies, movieDescription } from "./js-partials/themoviedbAPI";
+
 
 getMovies().then(sr => {
   let cards = sr.results.map(movie => {
