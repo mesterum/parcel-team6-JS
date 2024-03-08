@@ -6,7 +6,7 @@ import {
   TMDBconfiguration,
   getMovies,
   movieDescription,
-} from './js/themoviedbAPI';
+} from './themoviedbAPI.ts';
 
 const NO_POSTER = `../static/images/nothin.jpg`;
 
@@ -57,7 +57,7 @@ export async function renderGallery(movies) {
         return `
       <li class='movie_list_item' data-id="${id}" >
       <div href="" class='movie_list_link link' id=${id}>
-      <div class="movie__cover--darkened"
+      <div class="movie__cover"
         data-id="${id}"
         data-poster_path="${poster_path}"
         data-title="${title}"
