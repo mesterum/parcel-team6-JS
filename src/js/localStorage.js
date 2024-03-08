@@ -1,27 +1,20 @@
-const load = key => {
+export const setToLocalStorage = (key, value) => {
   try {
-    let state = localStorage.getItem(key);
-    return (state = JSON.parse(state) || undefined);
+    localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
-    console.error('Get state error:', error);
+    console.log(error.messege);
+  }
+};
+export const getFromStorage = key => {
+  try {
+    const serialisedState = localStorage.getItem(key);
+    return serialisedState === null ? undefined : JSON.parse(serialisedState);
+  } catch (error) {
+    console.log(error.messege);
   }
 };
 
-const save = (key, value) => {
-  try {
-    const state = JSON.stringify(value);
-    localStorage.setItem(key, state);
-  } catch (error) {
-    console.error('Set state error:', error);
-  }
+export const localStorageKeys = {
+  WATCHED: 'watched',
+  QUEUE: 'queue',
 };
-
-const remove = key => {
-  try {
-    localStorage.removeItem(key);
-  } catch (error) {
-    console.error('Remove state error:', error);
-  }
-};
-
-export { load, save, remove };
