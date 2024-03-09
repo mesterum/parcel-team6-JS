@@ -1,4 +1,4 @@
-import { fetchMovies, getGenres } from "../js-partials/api"; 
+import { fetchMovies, getGenres } from "../js-partials/api";
 
 document.addEventListener("DOMContentLoaded", async function() {
     const movieList = document.getElementById("movies-list");
@@ -6,8 +6,12 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     try {
         // Fetch movie data from your API
-        const moviesData = await fetchMovies("new", 1); 
+        const moviesData = await fetchMovies("popular", 1); 
         const movies = moviesData.results; 
+
+        // Fetch genre data
+        const genresData = await getGenres();
+        const genresMap = new Map(genresData.genres.map(genre => [genre.id, genre.name]));
 
         // Check if there are any movies
         if (movies.length === 0) {
@@ -26,9 +30,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : ""; 
 
             // Map genre IDs to genre names
-            const genreNames = genre_ids.map(genreId => {
-                // Logic to map genre IDs to genre names
-            });
+            const genreNames = genre_ids.map(genreId => genresMap.get(genreId)).filter(Boolean);
 
             const releaseYear = release_date ? release_date.split("-")[0] : "Unknown Year";
 
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             // Populate the inner HTML of the list item
             liTemplate.innerHTML = `
                 <div class="movie-poster">
-                    <img src="${posterUrl}" alt="${title} Poster">
+                    <img src="${posterUrl}" alt="${title}">
                 </div>
                 <div class="movie-name-container">
                     <p class="movie-name">${title.toUpperCase()}</p>
