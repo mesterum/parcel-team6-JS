@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 // Logic to map genre IDs to genre names
             });
 
-            const releaseYear = release_date ? release_date.split("-")[0] : "Unknown";
+            const releaseYear = release_date ? release_date.split("-")[0] : "Unknown Year";
 
             // Create a new list item element
             const liTemplate = document.createElement("li");
