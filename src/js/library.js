@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             empty.innerHTML = "Your movie library is empty!"; 
             return;
         }
+        
 
         // Clear the empty message
         empty.innerHTML = "";
