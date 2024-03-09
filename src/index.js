@@ -1,12 +1,13 @@
-import './js/gallery_markup';
-import './js/localStorage';
-import './js/refs';
+import './js-partials/gallery_markup';
+import './js-partials/localStorage';
+import './js-partials/refs';
+import './js-partials/api.js';
 
 import {
   TMDBconfiguration,
   getMovies,
   movieDescription,
-} from './js/themoviedbAPI.ts';
+} from './js-partials/themoviedbAPI.ts';
 
 getMovies().then(sr => {
   let cards = sr.results

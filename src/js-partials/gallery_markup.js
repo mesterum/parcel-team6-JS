@@ -2,34 +2,17 @@ import axios, { AxiosError } from 'axios';
 import { API_KEY } from './config';
 
 import {
-  TMDBconfiguration,
-  getMovies,
-  movieDescription,
-} from './themoviedbAPI.ts';
+  getTrending,
+  fetchMovies,
+  getInfoMovie,
+  getNameFilm,
+  getGenres,
+} from './api';
 
 const NO_POSTER = `../static/images/nothin.jpg`;
 
-export function getGenres(arrayId, genres) {
-  const arr = [];
-
-  for (const value of genres) {
-    if (arrayId === 'N/A' || arrayId.length === 0) {
-      arr.push('Other');
-      break;
-    } else if (arrayId.includes(value.id)) {
-      arr.push(value.name);
-    }
-  }
-
-  if (arr.length > 2) {
-    arr.splice(2, arr.length - 2, 'Other');
-  }
-
-  return arr.join(', ');
-}
-
 export async function renderGallery(movies) {
-  const genres = await fetchGenres();
+  const genres = await getGenres();
   return movies
     .map(
       ({
@@ -44,15 +27,6 @@ export async function renderGallery(movies) {
         vote_count,
         overview,
       } = movies) => {
-        const poster = poster_path
-          ? `https://image.tmdb.org/t/p/w500${poster_path}`
-          : NO_POSTER;
-        const releaseYear = release_date
-          ? release_date.split('-')[0]
-          : 'Unknown';
-        const checkGenres = genre_ids
-          ? getGenres(genre_ids, genres)
-          : 'Unknown';
         return `
       <li class='movie_list_item' data-id="${id}" >
       <div href="" class='movie_list_link link' id=${id}>
@@ -86,23 +60,4 @@ export async function renderGallery(movies) {
       }
     )
     .join('');
-}
-
-// fetchPopularMovies(2)
-//   .then(res => {
-//     const obj = res.results;
-//     return renderGallery(obj);
-//   })
-//   .then(res => {
-//     moviesEl.insertAdjacentHTML('beforeend', res);
-//   });
-
-export function getClassByRate(vote) {
-  if (vote >= 8) {
-    return 'green';
-  } else if (vote > 6) {
-    return 'orange';
-  } else {
-    return 'red';
-  }
 }
