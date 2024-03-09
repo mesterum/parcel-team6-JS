@@ -1,13 +1,9 @@
-import './js-partials/gallery_markup';
-import './js-partials/localStorage';
-import './js-partials/refs';
-import './js-partials/api.js';
-
-import {
-  TMDBconfiguration,
-  getMovies,
-  movieDescription,
-} from './js-partials/themoviedbAPI.ts';
+import { TMDBconfiguration, getMovies, movieDescription } from "./js-partials/themoviedbAPI";
+// import { showLoader } from "./js-partials/loader";
+// import './js-partials/gallery_markup';
+// import './js-partials/localStorage';
+// import './js-partials/refs';
+// import './js-partials/api.js';
 
 getMovies().then(sr => {
   let cards = sr.results
