@@ -1,4 +1,3 @@
-import { fetchGenres } from './api';
 import axios, { AxiosError } from 'axios';
 import { API_KEY } from './config';
 

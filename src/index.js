@@ -1,4 +1,3 @@
-import './js/api';
 import './js/gallery_markup';
 import './js/localStorage';
 import './js/refs';
