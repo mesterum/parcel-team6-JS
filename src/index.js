@@ -1,4 +1,5 @@
 import { TMDBconfiguration, getMovies, movieDescription } from "./js-partials/themoviedbAPI";
+import { showLoader } from "./js-partials/loader";
 
 
 getMovies().then(sr => {
@@ -16,5 +17,6 @@ getMovies().then(sr => {
 
 }
 )
+
 
 
