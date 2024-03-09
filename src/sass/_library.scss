@@ -1,4 +1,4 @@
- .buttons-library {
+.buttons-library {
     display: flex;
     position: relative;
     justify-content: center;
@@ -8,15 +8,14 @@
 
 @media screen and (min-width: 768px) {
        position: relative;
-       bottom: 280px;
-       padding-left: 350px;
+       bottom: 300px;
+       left: 10px;
        
     }
 
     @media screen and (min-width: 1280px) {
        position: relative;
-        bottom: 400px;
-        padding-left: 700px;
+        margin-left: 950px;
 
 
     }
@@ -53,4 +52,78 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+//library_body_adi
+
+
+.movie-library-container {
+display: flex;
+justify-content: center;
+padding: 32px;
+
+    .movie-library-list{
+        width: 1216px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        
+            .card-movie {
+                width: 395px;
+                height: 634px;
+                flex-basis:  calc((100% - 64px) / 3);
+                box-sizing: border-box;
+                background-color: white;
+                .movie-poster {
+                    width: 100%;
+                    height: 574px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    
+
+                    img {
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 100%; 
+                    }
+                }
+            
+                .movie-name-container{
+                    padding-top: 12px;
+            
+                    .movie-name {
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 24px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #000000;
+                        margin: 0;
+                        
+                    }
+                    .movie-genre-year {
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 24px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #B92F2C;
+                        margin: 0;
+                    }
+            
+                }
+                
+            }
+        }
+        
+
 }

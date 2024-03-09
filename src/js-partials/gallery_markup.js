@@ -61,3 +61,16 @@ export async function renderGallery(movies) {
     )
     .join('');
 }
+
+export async function renderGallery2(movies) {
+  const genres = await getGenres();
+  return movies.map(({ id, poster_path, title, release_date }) => {
+      const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : NO_POSTER;
+      return {
+          id,
+          posterUrl,
+          title,
+          release_date
+      };
+  });
+}
