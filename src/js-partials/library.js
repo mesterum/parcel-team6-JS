@@ -1,4 +1,5 @@
-import { fetchMovies, getGenres } from "./api";
+// import { fetchMovies} from "./api";
+import { movieDescription, getMovies as fetchMovies } from "./themoviedbAPI";
 
 document.addEventListener("DOMContentLoaded", async function() {
     const movieList = document.getElementById("movies-list");
@@ -8,10 +9,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         // Fetch movie data from your API
         const moviesData = await fetchMovies("popular", 1); 
         const movies = moviesData.results; 
-
-        // Fetch genre data
-        const genresData = await getGenres();
-        const genresMap = new Map(genresData.genres.map(genre => [genre.id, genre.name]));
 
         // Check if there are any movies
         if (movies.length === 0) {
@@ -24,15 +21,10 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         // Populate the movie list with fetched movies
         movies.forEach(movie => {
-            const { title, genre_ids, release_date, poster_path } = movie; 
+            const { title, poster_path } = movie; 
 
             // Construct the poster URL
             const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : ""; 
-
-            // Map genre IDs to genre names
-            const genreNames = genre_ids.map(genreId => genresMap.get(genreId)).filter(Boolean);
-
-            const releaseYear = release_date ? release_date.split("-")[0] : "Unknown Year";
 
             // Create a new list item element
             const liTemplate = document.createElement("li");
@@ -45,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 </div>
                 <div class="movie-name-container">
                     <p class="movie-name">${title.toUpperCase()}</p>
-                    <p class="movie-genre-year">${genreNames.join(", ")} | ${releaseYear}</p>
+                    <p class="movie-genre-year">${movieDescription(movie)}</p>
                 </div>
             `;
 
