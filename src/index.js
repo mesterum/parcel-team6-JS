@@ -8,7 +8,7 @@ import {
 // import './js-partials/localStorage';
 // import './js-partials/refs';
 // import './js-partials/api.js';
-//import './js-partials/scrollToTop';
+import './js-partials/scrollToTop.js';
 
 getMovies().then(sr => {
   let cards = sr.results
