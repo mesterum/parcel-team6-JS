@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '9899002b9b51fd4dfe6aea31ec85120f';
+const API_KEY = '714c3120d8fef346bdc59740f67d43e6';
 const URL = 'https://api.themoviedb.org/3';
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
@@ -59,13 +59,3 @@ export async function getGenres() {
     .catch(error => console.log(error));
 }
 
-export {
-  getGenres,
-  getInfoMovie,
-  getNameFilm,
-  getTrending,
-  fetchMovies,
-  URL,
-  BASE_URL,
-  API_KEY,
-};

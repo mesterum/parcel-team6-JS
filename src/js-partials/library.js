@@ -1,4 +1,4 @@
-import { fetchMovies, getGenres } from "../js-partials/api";
+import { fetchMovies, getGenres } from "./api";
 
 document.addEventListener("DOMContentLoaded", async function() {
     const movieList = document.getElementById("movies-list");
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     try {
         // Fetch movie data from your API
-        const moviesData = await fetchMovies("popular", 1); 
+        const moviesData = await fetchMovies("2024", 1); 
         const movies = moviesData.results; 
 
         // Fetch genre data
@@ -54,5 +54,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         });
     } catch (error) {
         console.error("Error fetching and rendering movies:", error.message);
+        empty.innerHTML = "An error occurred while fetching movies.";
     }
 });
