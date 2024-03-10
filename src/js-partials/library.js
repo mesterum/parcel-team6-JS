@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     try {
         // Fetch movie data from your API
-        const moviesData = await fetchMovies("2024", 1); 
+        const moviesData = await fetchMovies("new", 1); 
         const movies = moviesData.results; 
 
         // Fetch genre data
