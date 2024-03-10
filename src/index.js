@@ -3,12 +3,14 @@ import {
   getMovies,
   movieDescription,
 } from './js-partials/themoviedbAPI';
-// import { showLoader } from "./js-partials/loader";
-// import './js-partials/gallery_markup';
-// import './js-partials/localStorage';
-// import './js-partials/refs';
-// import './js-partials/api.js';
+import { showLoader } from "./js-partials/loader";
+import './js-partials/gallery_markup';
+import './js-partials/localStorage';
+import './js-partials/refs';
+import './js-partials/api.js';
+import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
+
 
 getMovies().then(sr => {
   let cards = sr.results
