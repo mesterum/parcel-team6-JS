@@ -5,24 +5,32 @@ const URL = 'https://api.themoviedb.org/3';
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
 
-// export async function getMovies() {
-//   const apiKey = API_KEY;
-//   const apiUrl = `${URL}/account/21063120/rated/movies?language=en-US&page=1&sort_by=created_at.asc`
-//   try {
-//     const response = await axios.get(BASE_URL, {
-//       params: {
-//         query: query,
-//         page: page,
-//         api_key: API_KEY,
-//       },
-//     });
-//     return response.data;
-//   } catch (err) {
-//     throw new Error(err.message);
-//   }
-// }
+export async function getMovies() {
+  const apiKey = API_KEY;
+  const apiUrl = `${URL}/account/21063120/rated/movies?language=en-US&page=1&sort_by=created_at.asc`
+  try {
+    const response = await axios.get(BASE_URL, {
+      params: {
+        query: query,
+        page: page,
+        api_key: API_KEY,
+      },
+    });
+    return response.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}
 
-
+export async function getMoviesNowPlaying(movie_id) {
+  const url = `${URL}/movie/now_playing?api_key=${API_KEY}&language=en-US`;
+  return axios
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => console.log(error));
+}
 
 
 export async function getTrending(page = 1) {
