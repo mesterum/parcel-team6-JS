@@ -11,6 +11,7 @@ import './js-partials/api.js';
 import './js-partials/gallery.js'
 // import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
+import './js-partials/footer-modal.js';
 
 /* getMovies().then(sr => {
   let cards = sr.results
