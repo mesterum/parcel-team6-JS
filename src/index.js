@@ -9,7 +9,7 @@ import './js-partials/localStorage';
 import './js-partials/refs';
 import './js-partials/api.js';
 import './js-partials/gallery.js'
-// import './js-partials/library.js';
+import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
 // import './js-partials/footer-modal.js';
 
