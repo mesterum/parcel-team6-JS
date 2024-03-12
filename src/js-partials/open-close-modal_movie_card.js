@@ -1,7 +1,7 @@
 //add and remove event listerner to movie card to open modal
 (() => {
   const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
+    openModalBtn: document.querySelector('[data-modal-open-movie]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
   };
