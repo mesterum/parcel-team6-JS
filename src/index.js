@@ -12,6 +12,7 @@ import './js-partials/gallery.js'
 // import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
 // import './js-partials/footer-modal.js';
+import './js-partials/pagination.js';
 
 /* getMovies().then(sr => {
   let cards = sr.results
