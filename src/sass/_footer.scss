@@ -1,0 +1,323 @@
+.footer {
+    background-color: aliceblue;
+    padding: 30px 0;
+  }
+  
+  .container-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    height: 77px;
+  }
+  
+  .footer-list {
+    font-size: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    display: flex;
+  }
+  
+  .footer-item {
+    color: rgba(84, 84, 84, 1);
+    align-items: center;
+    margin-bottom: 10px;
+    display: flex;
+    font-size: 16px;
+  }
+  
+  svg {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .icon-Group-2 svg {
+    width: 14px;
+    height: 13px;
+    fill: rgba(185, 47, 44, 1);
+    align-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation: heartbeat 1s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.1);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .footer-item svg {
+    animation: heartbeat 0.5s infinite ease-in-out;
+  }
+  
+  .footer-button {
+    font-family: Roboto;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /*incepe modala*/
+  
+  #my-modal-footer {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Stilizare pentru fereastra modală */
+  .footer-modal .is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0);
+  }
+  .footer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Transparență pentru fundal */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .is-hidden {
+    display: none;
+  }
+  
+  .footer-modal-window {
+    text-align: center;
+    max-width: 1000px;
+    max-height: 650px;
+    background-color: antiquewhite;
+    background-position: 50%;
+    border-radius: 5px;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    overflow-y: scroll;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+  }
+  
+  .group-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .group-gallery img {
+    width: calc(33.33% - 20px);
+    margin-bottom: 10px;
+  }
+  
+  .modal-description {
+    margin-top: 10px;
+  }
+  
+  #modal-title {
+    text-align: center;
+    color: #f5f5f5;
+    text-shadow: 1px 0 10px #110e03;
+    padding-bottom: 20px;
+    font-size: 38px;
+    animation: flicker 0.5s ease-in-out infinite alternate;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes flicker {
+    0% {
+      transform: translateY(1);
+    }
+  
+    50% {
+      transform: translateY(1, 1);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .close {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+  }
+  
+  .close:hover {
+    color: #f00;
+  }
+  
+  .slider-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  /* incepe modala
+  
+  
+  
+  
+  .footer-modal-window {
+      width: 1000px;
+      height: 750px;
+      background-image: url(../movie-background-collage.jpg);
+      background-size: cover;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+  }
+  
+  
+  
+  #modal-title {
+      text-align: center;
+      color: #f5f5f5;
+      text-shadow: 1px 0 10px #110e03;
+      padding-bottom: 20px;
+      font-size: 38px;
+      animation: slideRight.2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes slideRight {
+      0% {
+          transform: translateY(1);
+      }
+  
+      50% {
+          transform: translateY(1,1);
+      }
+  
+      100% {
+          transform: translateY(0);
+      }
+  }
+  
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  
+  .group-item{
+      width: 150px;
+      height: 280px;
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 1px outset #1f0404;
+      border-left: 1px outset #470101;
+      border-right: 1px outset #340000;
+      border-radius: 5%;
+      text-decoration: none;
+      transition: box-shadow .25s cubic-bezier(.4, 0, .2, 1), transform .25s cubic-bezier(.4, 0, .2, 1);
+  }
+  
+  .group-gallery{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+  
+  }
+  
+  .person-name{
+      font-size: 20px;
+      color: #f5f5f5;
+  }
+  
+  
+  
+  .group-link {
+      display: block;
+      text-decoration: none;
+      color: white;
+  }
+  
+  .group-img{
+      width: 100%;
+      border-radius: 5%;
+      margin-bottom: 10px;
+  }
+  
+  img{
+      max-width: 100%;
+      height: auto;
+      display: block;
+  }
+  
+  
+  
+  
+  
+   .footer-modal-button {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border: none;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      top: 8px;
+      right: 0;
+      font-size: 23px;
+     
+  }
+  
+   */
+  
