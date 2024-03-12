@@ -1,7 +1,22 @@
 //add and remove event listerner to movie card to open modal
+(() => {
+  const refs = {
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-modal]'),
+  };
 
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
+
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
+  }
+})();
+
+/*
 const refs = {
-  openModal: document.querySelector('.movie-library-list li'),
+  openModal: document.querySelector('.open-modal'),
   closeModal: document.querySelector('.closeModal'),
   modalInfo: document.querySelector('.info'),
   modal: document.querySelector('.modal'),
