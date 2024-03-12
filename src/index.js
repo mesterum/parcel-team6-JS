@@ -12,7 +12,7 @@ import './js-partials/gallery.js';
 // import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
 import './js-partials/add_to_wached&queue';
-import './js-partials/open-close-modal';
+import './js-partials/open-close-modal_movie_card.js';
 
 /* getMovies().then(sr => {
   let cards = sr.results
