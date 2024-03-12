@@ -1,4 +1,3 @@
-
 const imageUrls = [
     "https://ca.slack-edge.com/T05F0FBEZ4J-U05LNBNS1FV-bdc613eace33-512",
     "https://ca.slack-edge.com/T05F0FBEZ4J-U05LBUKH9H9-b0c3df3033a7-512",
@@ -20,29 +19,26 @@ const descriptions = [
 
 document.addEventListener("DOMContentLoaded", function () {
     const closeModalButtons = document.querySelectorAll('.close-modal');
-
+    let modal
     closeModalButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const modal = button.closest('.footer-modal');
+        modal = button.closest('.footer-modal');
+        button.addEventListener('click', function () {
             modal.classList.add('is-hidden');
         });
     });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
 
 
-   const modalTitle = document.getElementById('modal-title');
+    const modalTitle = document.getElementById('modal-title');
     modalTitle.textContent = 'Filmoteka';
 
-    const openModalButton = document.getElementById('openModalButton');
     const modalImage = document.querySelector('.modal-image');
     const modalDescription = document.querySelector('.modal-description');
     const groupGallery = document.querySelector('.group-gallery');
 
-
-    openModalButton.addEventListener('click', function() {
-    modal.style.display = "block";
+    const openModalButton = document.getElementById('openModalButton');
+    openModalButton.addEventListener('click', function () {
+        // modal.style.display = "block";
+        modal.classList.remove('is-hidden');
     });
 
 
@@ -53,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         imageElement.alt = "Image " + (index + 1);
 
 
-        
+
 
         //  click pentru a afișa imaginea și descrierile corespunzătoare
         imageElement.addEventListener('click', () => {
@@ -61,9 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         groupGallery.appendChild(imageElement);
-       });
+    });
 
-   
+
 
     //  afișarea modalei cu imaginea și descrierile 
     function showModal(imageUrl, name, role) {
@@ -73,19 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.classList.remove('is-hidden');
     }
 
-    
+
 
     //  închiderea modalei
-    
-
-    const closeModalButton = document.querySelector('.close');
-    closeModalButton.addEventListener('click', () => {
-    modal.style.display = 'none';
-    });
 
 
-    
+    /*  const closeModalButton = document.querySelector('.close');
+     closeModalButton.addEventListener('click', () => {
+         modal.style.display = 'none';
+     }); */
+
+
+
 });
-
-
-
