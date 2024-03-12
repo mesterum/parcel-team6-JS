@@ -32,6 +32,26 @@ export async function getMoviesNowPlaying(movie_id) {
     .catch(error => console.log(error));
 }
 
+export async function getMovieList(movie_id) {
+  const url = `${URL}/https://api.themoviedb.org/3/${account_id}/21073422/lists?api_key=${API_KEY}&language=en-US&page=1&sort_by=created_at.asc`;
+  return axios
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => console.log(error));
+}
+
+// export async function getWatchedMovies(movie_id) {
+//   const url = `${URL}/account/${account_id}//watchlist/movies?api_key=${API_KEY}&language=en-US&page=1&sort_by=created_at.asc`;
+//   return axios
+//     .get(url)
+//     .then(response => {
+//       return response.data;
+//     })
+//     .catch(error => console.log(error));
+// }
+
 
 export async function getTrending(page = 1) {
   const url = `${URL}/trending/all/day?api_key=${API_KEY}&language=en-US&page=${page}`;
