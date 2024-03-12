@@ -78,18 +78,19 @@
 import { getMoviesNowPlaying } from "./api";
 import { movieDescription } from "./themoviedbAPI";
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
     const movieListHome = document.getElementById("movies-list-home");
     const empty = document.querySelector(".empty-library-message");
 
+    if (!movieListHome) return;
     try {
         // Fetch movie data from your API
-        const moviesData = await getMoviesNowPlaying("popular", 1); 
-        const movies = moviesData.results; 
+        const moviesData = await getMoviesNowPlaying("popular", 1);
+        const movies = moviesData.results;
 
         // Check if there are any movies
         if (movies.length === 0) {
-            empty.innerHTML = "Your movie library is empty!"; 
+            empty.innerHTML = "Your movie library is empty!";
             return;
         }
 
@@ -98,10 +99,10 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         // Populate the movie list with fetched movies
         movies.forEach(movie => {
-            const { title, poster_path } = movie; 
+            const { title, poster_path } = movie;
 
             // Construct the poster URL
-            const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : ""; 
+            const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : "";
 
             // Create a new list item element
             const liTemplate = document.createElement("li");
