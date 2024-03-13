@@ -12,7 +12,10 @@ import './js-partials/gallery.js';
 import './js-partials/library.js';
 import './js-partials/scrollToTop.js';
 import './js-partials/pagination.js';
-// import './js-partials/footer-modal.js';
+import './js-partials/footer-modal.js';
+import './js-partials/open-close-modal_movie_card.js'
+import './js-partials/movie-modal-description.js'
+
 
 /* getMovies().then(sr => {
   let cards = sr.results
