@@ -1,6 +1,7 @@
 import { getGenres, getInfoMovie } from "./api";
 import { movieDescription, getMovies as getMovieList } from "./themoviedbAPI";
 
+
 const posterMovie = document.querySelector("#film-img");
 const movieTitleElement = document.getElementById("film-title");
 const movieDescriptionElement = document.getElementById("description");
@@ -14,6 +15,30 @@ const cardMovie = document.querySelector(".card-movie");
 
 const movieList = document.getElementById("movies-list");
 const movieHomeList = document.getElementById("movies-list-home")
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Your code here
+});
+
+function handleMovieListClick(event, movies) {
+    const target = event.target;
+    if (target.tagName === "IMG") {
+        const li = target.closest("li");
+        const movieName = li.querySelector(".movie-name").innerText.toUpperCase();
+        const movie = movies.find(movie => movie.title.toUpperCase() === movieName);
+        if (movie) {
+            const movieData = {
+                title: movie.title,
+                original_title: movie.title,
+                posterUrl: movie.poster_path
+            };
+            populateModal(movieData);
+        } else {
+            console.error("Movie not found");
+        }
+    }
+}
 
 // Add event listener to the movie list container
 movieList?.addEventListener("click", async function (event) {
@@ -48,8 +73,9 @@ movieHomeList?.addEventListener("click", async function (event) {
         // Extract movie data from the clicked list item
         const movieData = {
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
-            original_title: li.querySelector(".movie-name").innerText,
-            
+            posterUrl: event.target.getAttribute("src"),
+            original_title: li.querySelector(".movie-name").innerText
+
         };
 
         // Populate the modal with the extracted movie data
@@ -64,29 +90,30 @@ movieHomeList?.addEventListener("click", async function (event) {
 
 // Function to populate the modal with movie data
 
+
 async function populateModal(movieData) {
     try {
-        // Fetch the list of movies
-        const moviesData = await getMovieList();
-        const movies = moviesData.results;
+        // Construct the poster URL
+        const posterUrl = movieData.posterUrl ? `https://image.tmdb.org/t/p/w342${movieData.posterUrl}` : "";
 
-        // Loop through the list of movies
-        movies.forEach(movie => {
-            const { title, poster_path } = movie;
-
-            // Construct the poster URL
-            const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : "";
-
-        // Set the modal content for the specific movieData
+        // Set the modal content
         movieTitleElement.textContent = movieData.title;
-        posterMovie.setAttribute("src", movieData.posterUrl);
-        movieOrigTitleElement.textContent = movieData.original_title;
-        posterMovie.innerHTML = `<img src="${posterUrl}" alt="${title}">`
+        const imgElement = document.getElementById("film-img");
         
-        });
+        // Check if the img element exists
+        if (imgElement) {
+            imgElement.setAttribute("src", posterUrl);
+            movieOrigTitleElement.textContent = movieData.original_title;
+        } else {
+            console.error("Image element not found");
+        }
 
+        // Show the modal
+        const infoModal = document.getElementById("info-modal");
+        infoModal.classList.remove("is-hidden");
     } catch (error) {
-        console.error("Error fetching and rendering movies:", error.message);
+        console.error("Error populating modal:", error.message);
     }
 }
+
 
