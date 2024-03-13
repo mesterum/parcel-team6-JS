@@ -15,10 +15,10 @@ const movieList = document.getElementById("movies-list");
 const movieHomeList = document.getElementById("movies-list-home")
 
 // Add event listener to the movie list container
-movieList.addEventListener("click", async function(event) {
+movieList?.addEventListener("click", async function (event) {
     // Check if the clicked element is an image within a list item
     if (event.target.tagName === "IMG") {
-    
+
         const li = event.target.closest("li");
 
         // Extract movie data from the clicked list item
@@ -26,7 +26,7 @@ movieList.addEventListener("click", async function(event) {
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
             posterUrl: event.target.getAttribute("src"),
             original_title: li.querySelector(".movie-name").innerText
-            
+
         };
 
         // Populate the modal with the extracted movie data
@@ -38,10 +38,10 @@ movieList.addEventListener("click", async function(event) {
     }
 });
 
-movieHomeList.addEventListener("click", async function(event) {
+movieHomeList?.addEventListener("click", async function (event) {
     // Check if the clicked element is an image within a list item
     if (event.target.tagName === "IMG") {
-    
+
         const li = event.target.closest("li");
 
         // Extract movie data from the clicked list item
@@ -49,7 +49,7 @@ movieHomeList.addEventListener("click", async function(event) {
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
             posterUrl: event.target.getAttribute("src"),
             original_title: li.querySelector(".movie-name").innerText
-            
+
         };
 
         // Populate the modal with the extracted movie data
@@ -65,7 +65,7 @@ movieHomeList.addEventListener("click", async function(event) {
 
 // Function to populate the modal with movie data
 function populateModal(movieData) {
- 
+
     movieTitleElement.textContent = movieData.title;
     posterMovie.setAttribute("src", movieData.posterUrl);
     movieOrigTitleElement.textContent = movieData.original_title;
