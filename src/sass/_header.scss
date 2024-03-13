@@ -278,7 +278,7 @@ header {
   }
 
   .header-input {
-    width: 210px;
+    width: 100%;
     font-size: 12px;
     line-height: 1.16;
     text-transform: capitalize;
@@ -288,13 +288,13 @@ header {
     background-color: transparent;
 
     @media screen and (min-width: 768px) {
-      width: 120px;
+      // width: 120px;
       font-size: 14px;
       line-height: 16px;
     }
 
     @media screen and (min-width: 1280px) {
-      width: 140px;
+      // width: 140px;
     }
   }
 
@@ -389,6 +389,6 @@ header {
 
 /*---SEARCH BAR----*/
 
-.card-movie.show{
-  display:flex
+.card-movie.show {
+  display: flex;
 }
