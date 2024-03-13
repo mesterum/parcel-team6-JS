@@ -1,11 +1,32 @@
+const refs = { loader: document.querySelector('.loader') };
 
-
-const loader = document.getElementById("loader");
-
-export function showLoader() {
-    loader.style.display = "block";
+function removeLoader() {
+  refs.loader.classList.add('loader-hidden');
 }
 
-// export function hideLoader() {
-//     loader.style.display = "none";
-// }
+function addLoader() {
+  refs.loader.classList.remove('loader-hidden');
+}
+
+function hideLoader() {
+    const loader = document.querySelector('.loader');
+    loader.style.display = "none";
+    // stop spiner
+    const spinner = document.querySelector('.spinner');
+    spinner.style.animation = "none";
+}
+
+document.addEventListener('readystatechange', () => {
+    if (document.readyState === 'complete') {
+        hideLoader();
+    }
+});
+
+export default function onPageLoadingSpinner() {
+  const imgRef = document.querySelector('.movie__poster');
+
+  addLoader();
+  if (document.readyState === 'complete') {
+    setTimeout(removeLoader, 500);
+  }
+}
