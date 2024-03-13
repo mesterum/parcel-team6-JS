@@ -1,4 +1,5 @@
-import { getInfoMovie } from "./api";
+import { getGenres, getInfoMovie } from "./api";
+import { movieDescription, getMovies as getMovieList } from "./themoviedbAPI";
 
 const posterMovie = document.querySelector("#film-img");
 const movieTitleElement = document.getElementById("film-title");
@@ -47,9 +48,8 @@ movieHomeList?.addEventListener("click", async function (event) {
         // Extract movie data from the clicked list item
         const movieData = {
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
-            posterUrl: event.target.getAttribute("src"),
-            original_title: li.querySelector(".movie-name").innerText
-
+            original_title: li.querySelector(".movie-name").innerText,
+            
         };
 
         // Populate the modal with the extracted movie data
@@ -62,13 +62,31 @@ movieHomeList?.addEventListener("click", async function (event) {
 });
 
 
-
 // Function to populate the modal with movie data
-function populateModal(movieData) {
 
-    movieTitleElement.textContent = movieData.title;
-    posterMovie.setAttribute("src", movieData.posterUrl);
-    movieOrigTitleElement.textContent = movieData.original_title;
+async function populateModal(movieData) {
+    try {
+        // Fetch the list of movies
+        const moviesData = await getMovieList();
+        const movies = moviesData.results;
 
+        // Loop through the list of movies
+        movies.forEach(movie => {
+            const { title, poster_path } = movie;
 
+            // Construct the poster URL
+            const posterUrl = poster_path ? `https://image.tmdb.org/t/p/w342${poster_path}` : "";
+
+        // Set the modal content for the specific movieData
+        movieTitleElement.textContent = movieData.title;
+        posterMovie.setAttribute("src", movieData.posterUrl);
+        movieOrigTitleElement.textContent = movieData.original_title;
+        posterMovie.innerHTML = `<img src="${posterUrl}" alt="${title}">`
+        
+        });
+
+    } catch (error) {
+        console.error("Error fetching and rendering movies:", error.message);
+    }
 }
+
