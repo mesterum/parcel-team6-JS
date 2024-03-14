@@ -24,7 +24,7 @@ if (movieList) document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Clear the empty message
-        empty.innerHTML = "";
+        clearMovieList();
 
         // Populate the movie list with fetched movies
         movies.forEach(movie => {
@@ -63,7 +63,7 @@ if (movieList) document.addEventListener("DOMContentLoaded", async function () {
 watchedBtn?.addEventListener("click", async function () {
     try {
         // Clear the movie list
-        movieList.innerHTML = "";
+        clearMovieList();
 
         // Fetch watched movies data from your API
         const watchedMoviesData = await fetchMovies("watched", 1);
@@ -90,7 +90,7 @@ watchedBtn?.addEventListener("click", async function () {
 queueBtn?.addEventListener("click", async function () {
     try {
         // Clear the movie list
-        movieList.innerHTML = "";
+        clearMovieList();
 
         // Fetch movie queue data from your API
         const queueMoviesData = await fetchMovies("que", 1);
@@ -103,7 +103,7 @@ queueBtn?.addEventListener("click", async function () {
         }
 
         // Clear the empty message
-        empty.innerHTML = "";
+        clearMovieList();
 
         // Populate the movie list with fetched queue movies
         queueMovies.forEach(movie => {
@@ -137,4 +137,9 @@ function renderMovie(movie) {
 
     // Append the list item to the movie list
     movieList.appendChild(liTemplate);
+};
+
+function clearMovieList() {
+    movieList.innerHTML = "";
+    empty.innerHTML = "";
 };

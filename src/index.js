@@ -6,6 +6,7 @@ import {
 import { showLoader } from './js-partials/loader';
 import './js-partials/gallery_markup';
 import './js-partials/localStorage';
+import './js-partials/search';
 import './js-partials/refs';
 import './js-partials/api.js';
 import './js-partials/gallery.js';
