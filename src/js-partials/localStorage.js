@@ -1,7 +1,6 @@
-import { getInfoMovie } from './api';
 //NEED A MOVIE ID....
-
-const movieId = movie_id.data;
+/*
+const movieId = movieId;
 // Function to check if a movie is in the watched list
 function isMovieInWatched(movieId) {
   const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
@@ -70,9 +69,9 @@ function handleQueueButtonClick(details) {
     addMovieToQueue(details.id);
     queueButton.textContent = 'REMOVE FROM QUEUE';
   }
-}
+}*/
 
-/*export const setToLocalStorage = (key, value) => {
+export const setToLocalStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -91,4 +90,4 @@ export const getFromStorage = key => {
 export const localStorageKeys = {
   WATCHED: 'watched',
   QUEUE: 'queue',
-};*/
+};
