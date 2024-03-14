@@ -3,15 +3,16 @@
 import { movieDescription, getMovies } from "./themoviedbAPI";
 
 export async function renderGallery({ results: movies },
-    movieListHome = document.getElementById("movies-list-home")) {
-    const empty = document.querySelector(".empty-library-message");
+    movieListHome = document.getElementById("movies-list-home"),
+    emptyMessage = "No movies!") {
 
+    const empty = document.querySelector(".empty-library-message");
 
     if (!movieListHome) return;
     try {
         // Check if there are any movies
         if (movies.length === 0 && empty) {
-            empty.innerHTML = "No movies!";
+            empty.innerHTML = emptyMessage;
             return;
         }
 
@@ -42,12 +43,10 @@ export async function renderGallery({ results: movies },
                 </div>
             `;
 
-                // Append the list item to the movie list
                 return liTemplate;
             }))
     } catch (error) {
         console.error("Error fetching and rendering movies:", error.message);
-        empty.innerHTML = "An error occurred while fetching movies.";
     }
 }
 
