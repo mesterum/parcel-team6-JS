@@ -1,4 +1,4 @@
-import { getGenres, getInfoMovie as getMovieDetails } from "./api";
+import { getGenres, getMovieDetails } from "./api";
 import { movieDescription } from "./themoviedbAPI"; // Assuming you have a separate file for movie description
 import { API_URL } from './config';
 
@@ -28,6 +28,7 @@ async function handleMovieListClick(event) {
 
         // Extract movie data from the clicked list item
         const movieData = {
+            id: li.dataset.movieId,
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
             posterUrl: event.target.getAttribute("src"),
             genre: li.querySelector(".movie-genre-year").innerText,
@@ -59,7 +60,7 @@ async function populateModal(movieData) {
 
         // Fetch detailed movie information using the movie ID
         const movieDetails = await getMovieDetails(movieData.id);
-    
+
         // Check if the img element exists
         if (imgElement) {
             imgElement.setAttribute("src", posterUrl);
