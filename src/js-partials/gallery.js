@@ -29,6 +29,7 @@ export async function renderGallery({ results: movies },
                 // Create a new list item element
                 const liTemplate = document.createElement("li");
                 liTemplate.classList.add("card-movie");
+                liTemplate.dataset.movieId = movie.id;
 
                 // Populate the inner HTML of the list item
                 liTemplate.innerHTML = `
