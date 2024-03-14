@@ -23,7 +23,7 @@ function removeMovieFromWatched(movieId) {
 }
 
 function handleWatchedButtonClick(details) {
-  const watchedButton = document.getElementById('watchedButton');
+  const watchedButton = document.getElementById('add-to-watched-btn');
   const isCurrentlyWatched = isMovieInWatched(details.id);
 
   if (isCurrentlyWatched) {
@@ -58,7 +58,7 @@ function removeMovieFromQueue(movieId) {
 
 // Function to handle queue button click
 function handleQueueButtonClick(details) {
-  const queueButton = document.getElementById('queueButton');
+  const queueButton = document.getElementById('add-to-queue-btn');
   const isCurrentlyQueued = isMovieInQueue(details.id);
 
   if (isCurrentlyQueued) {
