@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_KEY } from './config';
 
 const API_KEY = '714c3120d8fef346bdc59740f67d43e6';
 const URL = 'https://api.themoviedb.org/3';
@@ -22,6 +23,20 @@ export async function getMovies() {
   }
 }
 
+export async function getMovieDetails(movieId) {
+  try {
+      const response = await axios.get(`${URL}/movie/${movieId}?language=en-US`, {
+          params: {
+              api_key: API_KEY,
+          },
+      });
+      return response.data;
+  } catch (error) {
+      throw new Error(error.message);
+  }
+}
+
+
 export async function getMoviesNowPlaying(movie_id) {
   const url = `${URL}/movie/now_playing?api_key=${API_KEY}&language=en-US`;
   return axios
@@ -42,15 +57,7 @@ export async function getMovieList(movie_id) {
     .catch(error => console.log(error));
 }
 
-// export async function getWatchedMovies(movie_id) {
-//   const url = `${URL}/account/${account_id}//watchlist/movies?api_key=${API_KEY}&language=en-US&page=1&sort_by=created_at.asc`;
-//   return axios
-//     .get(url)
-//     .then(response => {
-//       return response.data;
-//     })
-//     .catch(error => console.log(error));
-// }
+
 
 
 export async function getTrending(page = 1) {
