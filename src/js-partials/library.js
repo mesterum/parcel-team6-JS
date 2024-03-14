@@ -1,41 +1,38 @@
 import { getMovies as getMovieList } from "./themoviedbAPI";
 import { fetchMovies } from "./api"
 import { renderGallery } from "./gallery";
+import { setMoviesFunction } from "./pagination"
 
 const movieList = document.getElementById("movies-list");
 const watchedBtn = document.querySelector(".watched-tab-btn");
 const queueBtn = document.querySelector(".queue-tab-btn");
 
 if (movieList) document.addEventListener("DOMContentLoaded", async function () {
-    try {
+    setMoviesFunction(async page => {
         // Fetch movie data from your API
-        const moviesData = await getMovieList();
+        const moviesData = await getMovieList("", page);
         renderGallery(moviesData, movieList, "Your movie library is empty!");
-
-    } catch (error) {
-        console.error("Error fetching and rendering movies:", error.message);
-    }
+        return moviesData
+    })
 });
 
 //Buttons
 
 
 watchedBtn?.addEventListener("click", async function () {
-    try {
+    setMoviesFunction(async page => {
         // Fetch watched movies data from your API
-        const watchedMoviesData = await fetchMovies("watched", 1);
+        const watchedMoviesData = await fetchMovies("watched", page);
         renderGallery(watchedMoviesData, movieList, "You haven't watched any movies yet!");
-    } catch (error) {
-        console.error("Error fetching and rendering watched movies:", error.message);
-    }
+        return watchedMoviesData
+    })
 });
 
-queueBtn?.addEventListener("click", async function () {
-    try {
+queueBtn?.addEventListener("click", () =>
+    setMoviesFunction(async page => {
         // Fetch movie queue data from your API
-        const queueMoviesData = await fetchMovies("que", 1);
+        const queueMoviesData = await fetchMovies("que", page);
         renderGallery(queueMoviesData, movieList, "Your movie queue is empty!");
-    } catch (error) {
-        console.error("Error fetching and rendering queued movies:", error.message);
-    }
-});
+        return queueMoviesData
+    })
+);
