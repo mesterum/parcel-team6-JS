@@ -127,6 +127,7 @@
 
 #right-content {
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-items: start;
   color: black;
@@ -137,6 +138,12 @@
   margin-right: 12px;
   margin-left: 16px;
 }
+
+.right-mini-container {
+  width: 375px;
+  height: 478px;
+}
+
 
 #film-img {
   width: 375px;
@@ -152,6 +159,7 @@
   font-size: 30px;
   line-height: 35px;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 #description {
@@ -169,6 +177,10 @@
   margin-bottom: 20px;
   font-weight: 500;
   line-height: 20px;
+  width: 400px;
+  height: 210px;
+  overflow: auto;
+  flex-grow: 1;
 }
 
 @keyframes opening {
@@ -195,6 +207,7 @@
   display: flex;
   flex-direction: column;
   font-size: 12px;
+  gap: 20px;
 
   span {
     font-weight: 500;
@@ -332,5 +345,7 @@
 .img-posters {
   position: relative;
   transition: 0.4s;
+  width: 375px;
+  height: 478px;
   aspect-ratio: 0.6666667;
 }
