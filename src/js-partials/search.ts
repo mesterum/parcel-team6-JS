@@ -1,5 +1,6 @@
 
 import { renderGallery } from './gallery';
+import { setMoviesFunction } from './pagination';
 import { getMovies } from './themoviedbAPI';
 
 const
@@ -21,8 +22,9 @@ if (searchFilmForm) {
 }
 
 async function getNameFilmAPI(query: string) {
-
-  const movies = await getMovies(query)
-  renderGallery(movies);
-
+  setMoviesFunction(async (page = 1) => {
+    const movies = await getMovies(query, page);
+    renderGallery(movies);
+    return movies
+  })
 }
