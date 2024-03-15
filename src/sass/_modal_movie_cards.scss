@@ -168,7 +168,24 @@
   margin-bottom: 20px;
 }
 
-#votes,
+
+#votes {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+  width: 26px;
+  height: 16px;
+  border-radius: 5px;
+  background: #B92F2C;
+  padding: 1px 9px 1px 10px;
+  
+}
+
+#votes-total,
 #popul,
 #origTitle,
 #genre {
@@ -220,130 +237,141 @@
 }
 
 .btn_section {
-  //FOR BUTTONS
+  // FOR BUTTONS
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .add-to-watched-btn,
+  .add-to-queue-btn {
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14.06px;
+    text-align: center;
+    color: #B92F2C;
+    border: 1px solid #000;
+    background-color: transparent;
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #ffffff;
+
+    &:hover,
+    &:focus {
+      background-color: #B92F2C;
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    &.active-btn {
+      background-color: #B92F2C;
+      color: #ffffff;
+      border-color: transparent;
+      padding: 14px 34px;
+    }
+
+    @media screen and (min-width: 768px) {
+      min-width: 125px;
+      padding: 14px 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      min-width: 136px;
+    }
+  }
+
+  // Additional styling for specific screen sizes
   @media screen and (min-width: 480px) {
     gap: 20px;
+
+    .add-to-queue-btn,
+    .add-to-watched-btn {
+      @media screen and (max-width: 767px) {
+        padding: 14px 24px;
+        max-width: 110px;
+      }
+    }
   }
 
   @media screen and (min-width: 768px) {
     gap: 15px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (max-width: 1280px) {
+    #modal {
+      // width: 704px;
+      padding: 40px 36px;
+    }
+
+    #right-content {
+      margin-left: 66px;
+    }
+
+    #film-title {
+      font-size: 20px;
+      line-height: 23.44px;
+    }
+
+    #film-img {
+      width: 240px;
+      height: 357px;
+    }
   }
-}
 
-.add-to-watched-btn,
-.add-to-queue-btn {
-  border-radius: 5px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.3;
-  text-align: center;
-  color: #8c8c8c;
-  border: 1px solid #000;
-  background-color: transparent;
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  @media screen and (max-width: 768px) {
+    #movie-card {
+      overflow: hidden;
+    }
 
-  &:hover,
-  &:focus {
-    background-color: #8c8c8c;
-    color: #000;
+    #content {
+      display: flex;
+      flex-direction: column;
+      max-height: 460px;
+      overflow-y: scroll;
+      width: 245px;
+      margin: 0;
+    }
+
+    #content::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    #film-title {
+      font-size: 20px;
+      line-height: 23.44px;
+    }
+
+    #left-content,
+    #right-content {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    #right-content {
+      padding: 0;
+      margin-top: 20px;
+      width: 240px;
+    }
+
+    #left-content {
+      width: 240px;
+      height: 357px;
+    }
+
+    #modal {
+      max-width: 320px;
+      padding: 48px 20px;
+      max-width: 280px;
+    }
+  }
+
+  .active-btn {
+    background-color: #B92F2C;
+    color: #ffffff;
     border-color: transparent;
+    padding: 14px 34px;
   }
 
-  @media screen and (min-width: 768px) {
-    min-width: 125px;
-    padding: 14px 10px 12px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    min-width: 136px;
-  }
-}
-
-.add-to-queue-btn,
-.add-to-watched-btn {
-  @media screen and (min-width: 480px) and (max-width: 767px) {
-    padding: 6px 13px;
-    max-width: 110px;
-  }
-}
-
-//BUTTONS
-
-@media screen and (max-width: 1280px) {
-  #modal {
-    // width: 704px;
-    padding: 40px 36px;
-  }
-
-  #right-content {
-    margin-left: 66px;
-  }
-
-  #film-title {
-    font-size: 20px;
-    line-height: 23.44px;
-  }
-
-  #film-img {
-    width: 240px;
-    height: 357px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #movie-card {
-    overflow: hidden;
-  }
-
-  #content {
-    display: flex;
-    flex-direction: column;
-    max-height: 460px;
-    overflow-y: scroll;
-    width: 245px;
-    margin: 0;
-  }
-
-  #content::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  #film-title {
-    font-size: 20px;
-    line-height: 23.44px;
-  }
-
-  #left-content,
-  #right-content {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-  }
-
-  #right-content {
-    padding: 0;
-    margin-top: 20px;
-    width: 240px;
-  }
-
-  #left-content {
-    width: 240px;
-    height: 357px;
-  }
-
-  #modal {
-    max-width: 320px;
-    padding: 48px 20px;
-    max-width: 280px;
-  }
 }
 
 .img-posters {

@@ -4,10 +4,13 @@ import { getMovieDetails } from './api';
 
 const movieTitleElement = document.getElementById('film-title');
 const movieVotesElement = document.getElementById('votes');
+const movieVotesTotal = document.getElementById('votes-total');
 const moviePopularityElement = document.getElementById('popul');
 const movieOrigTitleElement = document.getElementById('origTitle');
 const movieGenreElement = document.getElementById('genre');
 const movieAboutElement = document.getElementById('about');
+const btnWatched = document.querySelector(".add-to-watched-btn");
+const btnFAVORITE = document.querySelector(".add-to-queue-btn");
 
 // Get movie list containers
 const movieList = document.getElementById('movies-list');
@@ -63,7 +66,8 @@ async function populateModal(movieData) {
       imgElement.setAttribute('src', posterUrl);
       movieVotesElement.textContent = ` ${movieDetails.vote_average.toFixed(
         1
-      )} / ${movieDetails.vote_count} `;
+      )}`
+      movieVotesTotal.textContent = `${movieDetails.vote_count} `;
       moviePopularityElement.textContent = ` ${movieDetails.popularity.toFixed(
         1
       )}`;
@@ -71,7 +75,7 @@ async function populateModal(movieData) {
       movieGenreElement.textContent = `${movieDetails.genres
         .map(name => name.name)
         .join(', ')}`;
-      movieOrigTitleElement.textContent = `${movieDetails.original_title}`;
+      movieOrigTitleElement.textContent = `${movieDetails.original_title.toUpperCase()}`;
     } else {
       console.error('Image element not found');
     }
@@ -79,3 +83,46 @@ async function populateModal(movieData) {
     console.error('Error populating modal:', error.message);
   }
 }
+
+
+function removeActiveClass(clickedButton) {
+  const allButtons = document.querySelectorAll('.add-to-watched-btn, .add-to-queue-btn');
+  allButtons.forEach(button => {
+    if (button !== clickedButton && button.classList.contains('active-btn')) {
+      button.classList.remove('active-btn');
+    } else {
+      button.classList.add('active-btn');
+    }
+  });
+}
+  
+  // Add event listener to the document
+  document.addEventListener('click', function(event) {
+    const clickedElement = event.target;
+    const modal = document.getElementById('info-modal');
+  
+    // Check if the click occurred on one of the buttons
+    if (clickedElement.classList.contains('add-to-watched-btn') || clickedElement.classList.contains('add-to-queue-btn')) {
+      // Toggle active class on the clicked button
+      clickedElement.classList.toggle('active-btn');
+      // Remove active class from other buttons
+      removeActiveClass(clickedElement);
+    } else if (!modal.contains(clickedElement)) {
+      // Remove active class from all buttons if click occurred outside buttons and modal
+      const allButtons = document.querySelectorAll('.add-to-watched-btn, .add-to-queue-btn');
+      allButtons.forEach(button => {
+        button.classList.remove('active-btn');
+      });
+    }
+  });
+
+
+btnWatched.addEventListener('click', function() {
+    this.textContent = (this.textContent === 'ADD TO WATCHED') ? 'REMOVE FROM WATCHED' : 'ADD TO WATCHED';
+});
+
+btnFAVORITE.addEventListener('click', function() {
+    const span = this.querySelector('span');
+    span.textContent = (span.textContent === 'ADD TO FAVORITE') ? 'REMOVE FROM FAVORITE' : 'ADD TO FAVORITE';
+});
+
