@@ -12,7 +12,7 @@ if (movieList) document.addEventListener("DOMContentLoaded", async function () {
 
     try {
         // Fetch movie data from your API
-        const moviesData = await getMovieList();
+        const moviesData = await getMovieList("libra");
         const movies = moviesData.results;
 
 

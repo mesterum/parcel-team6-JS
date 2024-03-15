@@ -21,6 +21,8 @@ const movieHomeList = document.getElementById("movies-list-home");
 movieList?.addEventListener("click", handleMovieListClick);
 movieHomeList?.addEventListener("click", handleMovieListClick);
 
+
+
 // Function to handle movie list click events
 async function handleMovieListClick(event) {
     if (event.target.tagName === "IMG") {
