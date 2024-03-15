@@ -133,7 +133,7 @@
   max-width: 50%;
   font-size: 16px;
   line-height: 1.5;
-  text-align: justify;
+  text-align:left;
   margin-right: 12px;
   margin-left: 16px;
 }
@@ -332,4 +332,5 @@
 .img-posters {
   position: relative;
   transition: 0.4s;
+  aspect-ratio: 0.6666667;
 }

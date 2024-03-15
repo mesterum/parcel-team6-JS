@@ -33,7 +33,7 @@ async function handleMovieListClick(event) {
             id: li.dataset.movieId,
             title: li.querySelector(".movie-name").innerText.toUpperCase(),
             posterUrl: event.target.getAttribute("src"),
-            genre: li.querySelector(".movie-genre-year").innerText,
+            genre: movieGenreElement.innerText,
             original_title: movieOrigTitleElement.innerText,
             popularity: moviePopularityElement.innerText,
             votes: movieVotesElement.innerText
@@ -57,7 +57,6 @@ async function populateModal(movieData) {
         // Set the modal content
         movieTitleElement.textContent = movieData.title;
         const imgElement = document.getElementById("film-img");
-        movieOrigTitleElement.textContent = movieData.original_title;
         movieGenreElement.textContent = movieData.genre;
 
         // Fetch detailed movie information using the movie ID
@@ -66,9 +65,11 @@ async function populateModal(movieData) {
         // Check if the img element exists
         if (imgElement) {
             imgElement.setAttribute("src", posterUrl);
-            movieVotesElement.textContent = ` ${movieData.votes}`;
-            moviePopularityElement.textContent = ` ${movieData.popularity}`;
+            movieVotesElement.textContent = ` ${movieDetails.vote_average.toFixed(1)} / ${movieDetails.vote_count} `;
+            moviePopularityElement.textContent = ` ${movieDetails.popularity.toFixed(1)}`;
             movieAboutElement.textContent = `${movieDetails.overview}`;
+            movieGenreElement.textContent = `${movieDetails.genres.map(name =>name.name).join(", ")}`;
+            movieOrigTitleElement.textContent = `${movieDetails.original_title}`;
         } else {
             console.error("Image element not found");
         }

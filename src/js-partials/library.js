@@ -4,13 +4,14 @@ import { renderGallery } from "./gallery";
 import { setMoviesFunction } from "./pagination"
 
 const movieList = document.getElementById("movies-list");
+const empty = document.querySelector(".empty-library-message");
 const watchedBtn = document.querySelector(".watched-tab-btn");
 const queueBtn = document.querySelector(".queue-tab-btn");
 
 if (movieList) document.addEventListener("DOMContentLoaded", async function () {
     setMoviesFunction(async page => {
         // Fetch movie data from your API
-        const moviesData = await getMovieList("", page);
+        const moviesData = await fetchMovies("libra", page);
         renderGallery(moviesData, movieList, "Your movie library is empty!");
         return moviesData
     })
