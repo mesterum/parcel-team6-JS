@@ -1,7 +1,6 @@
 import { getMovieDetails } from './api';
 
 // DOM elements
-
 const movieTitleElement = document.getElementById('film-title');
 const movieVotesElement = document.getElementById('votes');
 const movieVotesTotal = document.getElementById('votes-total');
@@ -11,6 +10,7 @@ const movieGenreElement = document.getElementById('genre');
 const movieAboutElement = document.getElementById('about');
 const btnWatched = document.querySelector(".add-to-watched-btn");
 const btnFAVORITE = document.querySelector(".add-to-queue-btn");
+const infoModal = document.getElementById('info-modal');
 
 // Get movie list containers
 const movieList = document.getElementById('movies-list');
@@ -20,12 +20,13 @@ const movieHomeList = document.getElementById('movies-list-home');
 movieList?.addEventListener('click', handleMovieListClick);
 movieHomeList?.addEventListener('click', handleMovieListClick);
 
+// Array to store selected movies
+let selectedMovies = [];
+
 // Function to handle movie list click events
-async function handleMovieListClick(event) {
+function handleMovieListClick(event) {
   if (event.target.tagName === 'IMG') {
     const li = event.target.closest('li');
-
-    // Extract movie data from the clicked list item
     const movieData = {
       id: li.dataset.movieId,
       title: li.querySelector('.movie-name').innerText.toUpperCase(),
@@ -35,10 +36,18 @@ async function handleMovieListClick(event) {
       popularity: moviePopularityElement.innerText,
       votes: movieVotesElement.innerText,
     };
-
-    // Populate the modal with the extracted movie data
+    
+    // Check if the movie is already selected
+    const isMovieSelected = selectedMovies.some(movie => movie.id === movieData.id);
+    
+    // If not selected, add it to the array
+    if (!isMovieSelected) {
+      selectedMovies.push(movieData);
+    }
+    
+    // Populate the modal with the selected movie data
     populateModal(movieData);
-
+    
     // Show the modal
     const infoModal = document.getElementById('info-modal');
     infoModal.classList.remove('is-hidden');
@@ -87,11 +96,10 @@ async function populateModal(movieData) {
 
 function removeActiveClass(clickedButton) {
   const allButtons = document.querySelectorAll('.add-to-watched-btn, .add-to-queue-btn');
-  allButtons.forEach(button => {
-    if (button !== clickedButton && button.classList.contains('active-btn')) {
+    allButtons.forEach(button => {
+      
+         if (button !== clickedButton) {
       button.classList.remove('active-btn');
-    } else {
-      button.classList.add('active-btn');
     }
   });
 }
@@ -118,11 +126,14 @@ function removeActiveClass(clickedButton) {
 
 
 btnWatched.addEventListener('click', function() {
-    this.textContent = (this.textContent === 'ADD TO WATCHED') ? 'REMOVE FROM WATCHED' : 'ADD TO WATCHED';
+  // Add code here to handle adding selected movies to "Watched"
+  console.log(selectedMovies);
+  selectedMovies = []; // Clear selected movies after adding
 });
 
+// Event listener for "Add to Favorite" button
 btnFAVORITE.addEventListener('click', function() {
-    const span = this.querySelector('span');
-    span.textContent = (span.textContent === 'ADD TO FAVORITE') ? 'REMOVE FROM FAVORITE' : 'ADD TO FAVORITE';
+  // Add code here to handle adding selected movies to "Favorite"
+  console.log(selectedMovies);
+  selectedMovies = []; // Clear selected movies after adding
 });
-
