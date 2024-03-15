@@ -7,7 +7,6 @@ a {
 }
 
 header {
-  position: relative;
   margin-top: 20px;
 
   .global-header {
@@ -176,11 +175,13 @@ header {
 
   .header-main-nav {
     display: flex;
+    gap: 20px;
+    justify-content: space-between;
     flex-direction: column;
 
     @media screen and (min-width: 768px) {
       display: flex;
-      margin-bottom: 105px;
+      margin-bottom: 75px;
       flex-direction: row-reverse;
       justify-content: flex-end;
       align-items: baseline;
@@ -188,7 +189,8 @@ header {
 
     @media screen and (min-width: 1280px) {
       display: flex;
-      margin-bottom: 151px;
+      gap: 10px;
+      margin-bottom: 105px;
       flex-direction: row-reverse;
       justify-content: flex-end;
     }
@@ -196,7 +198,7 @@ header {
 
   .header-list-button {
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
     gap: 8px;
   }
 
@@ -330,8 +332,7 @@ header {
   }
 
   .header-logo {
-    position: relative;
-    bottom: 50px;
+    margin-bottom: 50px;
 
     @media screen and (min-width: 768px) {
       margin-right: 60px;
