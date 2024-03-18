@@ -47,16 +47,17 @@ export class MovieDetails implements Persistance, IMovie {
   set isWatched(value: boolean) {
     if (value == this.isWatched) return
     if (value) {
+      this.watchedId = ++MovieDetails.lastIds.watched
       if (!this.isQueued) {
-        this.watchedId = ++MovieDetails.lastIds.watched
         db.all.put(this)
         dirty.All = true
       }
       else {
-        db.all.where("id").equals(this.id).modify({ watchedId: ++MovieDetails.lastIds.watched })
+        db.all.where("id").equals(this.id).modify({ watchedId: this.watchedId })
       }
     }
     else {
+      this.watchedId = 0
       if (!this.isQueued) {
         db.all.where("id").equals(this.id).delete()
         dirty.All = true
@@ -64,7 +65,6 @@ export class MovieDetails implements Persistance, IMovie {
       else { db.all.where("id").equals(this.id).modify({ watchedId: 0 }) }
     }
     dirty.Watched = true
-
   }
   get isQueued(): boolean {
     return this.queuedId > 0
@@ -72,16 +72,17 @@ export class MovieDetails implements Persistance, IMovie {
   set isQueued(value: boolean) {
     if (value == this.isQueued) return
     if (value) {
+      this.queuedId = ++MovieDetails.lastIds.queued
       if (!this.isWatched) {
-        this.queuedId = ++MovieDetails.lastIds.queued
         db.all.put(this)
         dirty.All = true
       }
       else {
-        db.all.where("id").equals(this.id).modify({ queuedId: ++MovieDetails.lastIds.queued })
+        db.all.where("id").equals(this.id).modify({ queuedId: this.queuedId })
       }
     }
     else {
+      this.queuedId = 0
       if (!this.isWatched) {
         db.all.where("id").equals(this.id).delete()
         dirty.All = true
