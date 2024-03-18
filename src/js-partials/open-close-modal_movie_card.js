@@ -1,18 +1,24 @@
+import { currentPage } from "./pagination";
 //add and remove event listerner to movie card to open modal
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open-movie]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-  };
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open-movie]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+
+function toggleModal(event) {
+  if (event.currentTarget === refs.modal && event.target !== refs.modal) return
+  refs.modal.classList.toggle('is-hidden');
+  if (refs.modal.classList.contains('is-hidden')) {
+    console.log("closing modal");
+    currentPage.refreshPage();
   }
-})();
+}
+
 
 /*
 const refs = {

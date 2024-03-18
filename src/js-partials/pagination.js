@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 
 const container = document.querySelector('#pagination');
 const options = {
-  totalItems: 1000,
+  totalItems: 0,
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
@@ -37,15 +37,31 @@ let movieList = {
 
 async function runMoviesFunction(page) {
   try {
-    movieList = await moviesFunction(page)
+    currentPage.movieList = await moviesFunction(page)
   } catch (error) {
     console.error("Error fetching and rendering movies:", error.message);
   }
 }
 export async function setMoviesFunction(getMovies) {
   moviesFunction = getMovies;
-  await runMoviesFunction(1);
+  await runMoviesFunction();
   pagination.reset(movieList.total_results);
+  // if (pagination.getCurrentPage() === movieList.page) return;
+  pagination.movePageTo(movieList.page);
   return movieList;
 }
+
+export const currentPage = {
+  get movieList() {
+    return movieList;
+  },
+  set movieList(value) {
+    if (!value) return;
+    movieList = value;
+    container.dispatchEvent(pageChangedEvent);
+  },
+  subscribe(listener, options) { container.addEventListener('pageChanged', listener, options); },
+  refreshPage() { runMoviesFunction() }
+}
+const pageChangedEvent = new CustomEvent('pageChanged')
 

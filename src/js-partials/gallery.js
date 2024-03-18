@@ -3,13 +3,14 @@
 import { setMoviesFunction } from "./pagination";
 import { movieDescription, getMovies } from "./themoviedbAPI";
 
-export function renderGallery({ results: movies },
+export function renderGallery(movieList,
     movieListHome = document.getElementById("movies-list-home"),
     emptyMessage = "No movies!") {
 
-    const empty = document.querySelector(".empty-library-message");
+    if (!movieList || !movieListHome) return;
+    const { results: movies } = movieList
+    empty = document.querySelector(".empty-library-message");
 
-    if (!movieListHome) return;
     // Check if there are any movies
     if (movies.length === 0 && empty) {
         empty.innerHTML = emptyMessage;
@@ -53,10 +54,15 @@ function clearMovieList(movieList, empty) {
     empty.innerHTML = "";
 }
 
-document.addEventListener("DOMContentLoaded", () =>
+document.addEventListener("DOMContentLoaded", () => {
+    let is1stTime = true;
     setMoviesFunction(async page => {
+        if (page === undefined) {
+            if (!is1stTime) return;
+            is1stTime = false; page = 1;
+        }
         const movies = await getMovies("", page);
         renderGallery(movies);
         return movies
     })
-);
+})
