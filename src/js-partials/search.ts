@@ -22,7 +22,10 @@ if (searchFilmForm) {
 }
 
 async function getNameFilmAPI(query: string) {
-  setMoviesFunction(async (page = 1) => {
+  let is1stTime = true;
+  setMoviesFunction(async (page?: number) => {
+    if (page === undefined && !is1stTime) return;
+    is1stTime = false; page ??= 1;
     const movies = await getMovies(query, page);
     renderGallery(movies);
     return movies

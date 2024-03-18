@@ -118,7 +118,6 @@
 
 #left-content {
   height: auto;
-   
 
   img {
     width: 375px;
@@ -136,16 +135,14 @@
   max-width: 100%;
   font-size: 16px;
   line-height: 1.5;
-  text-align:left;
+  text-align: left;
   margin-right: 12px;
   margin-left: 16px;
 }
 
 .right-mini-container {
   width: 375px;
- 
 }
-
 
 #film-img {
   width: 375px;
@@ -168,7 +165,6 @@
   margin-bottom: 20px;
 }
 
-
 #votes {
   font-family: Roboto;
   font-size: 12px;
@@ -180,9 +176,8 @@
   width: 26px;
   height: 16px;
   border-radius: 5px;
-  background: #B92F2C;
+  background: #b92f2c;
   padding: 1px 9px 1px 10px;
-  
 }
 
 #votes-total,
@@ -249,24 +244,24 @@
     font-size: 12px;
     line-height: 14.06px;
     text-align: center;
-    color: #B92F2C;
+    color: #b92f2c;
     border: 1px solid #000;
     background-color: transparent;
-    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     background: #ffffff;
 
-    &:hover,
-    &:focus {
-      background-color: #B92F2C;
-      color: #ffffff;
-      border-color: transparent;
-    }
+    // &:hover {
+    //   background-color: #b92f2c;
+    //   color: #ffffff;
+    //   border-color: transparent;
+    // }
 
     &.active-btn {
-      background-color: #B92F2C;
+      background-color: #b92f2c;
       color: #ffffff;
       border-color: transparent;
-      padding: 14px 34px;
+      padding: 14px 17px;
     }
 
     @media screen and (min-width: 768px) {
@@ -366,12 +361,11 @@
   }
 
   .active-btn {
-    background-color: #B92F2C;
+    background-color: #b92f2c;
     color: #ffffff;
     border-color: transparent;
     padding: 14px 34px;
   }
-
 }
 
 .img-posters {
