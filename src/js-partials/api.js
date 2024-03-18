@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_KEY } from './config';
 
-const API_KEY = '714c3120d8fef346bdc59740f67d43e6';
+// const API_KEY = '714c3120d8fef346bdc59740f67d43e6';
 const URL = 'https://api.themoviedb.org/3';
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
@@ -25,14 +25,14 @@ export async function getMovies() {
 
 export async function getMovieDetails(movieId) {
   try {
-      const response = await axios.get(`${URL}/movie/${movieId}?language=en-US`, {
-          params: {
-              api_key: API_KEY,
-          },
-      });
-      return response.data;
+    const response = await axios.get(`${URL}/movie/${movieId}?language=en-US`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response.data;
   } catch (error) {
-      throw new Error(error.message);
+    throw new Error(error.message);
   }
 }
 

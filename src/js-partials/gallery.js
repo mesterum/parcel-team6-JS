@@ -9,7 +9,7 @@ export function renderGallery(movieList,
 
     if (!movieList || !movieListHome) return;
     const { results: movies } = movieList
-    empty = document.querySelector(".empty-library-message");
+    const empty = document.querySelector(".empty-library-message");
 
     // Check if there are any movies
     if (movies.length === 0 && empty) {
