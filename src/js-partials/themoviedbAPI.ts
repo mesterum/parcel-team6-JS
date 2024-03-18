@@ -25,7 +25,7 @@ function* genres(genre_ids: number[]) {
   }
 }
 
-type SearchResult = {
+export type SearchResult = {
   page: number;
   results: {
     adult: boolean;
