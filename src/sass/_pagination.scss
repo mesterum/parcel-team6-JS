@@ -1,0 +1,34 @@
+.pagination{
+   display: flex;
+   justify-content: center;
+}
+
+.tui-page-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #333;
+}
+
+
+.tui-page-btn.tui-is-selected {
+    background-color: #B92F2C;
+    color: #fff;
+    border-color: #B92F2C;
+}
+
+
+.tui-ico-prev::before{
+    content: '<';
+}
+.tui-ico-next::after {
+    content: '>';
+}
+
+
+.tui-ico-ellip {
+    font-style: italic;
+}
